@@ -39,7 +39,7 @@ export const gridOrderStatus = (props) => (
     style={{ background: props.StatusBg }}
     className="text-white py-1 px-2 capitalize rounded-2xl text-md"
   >
-    {props.Status}
+    {props.EventTime}
   </button>
 );
 
@@ -128,7 +128,7 @@ const customerGridImage = (props) => (
       alt="employee"
     />
     <div>
-      <p>{props.CustomerName}</p>
+      <p>{props.EventName}</p>
       <p>{props.CustomerEmail}</p>
     </div>
   </div>
@@ -625,7 +625,7 @@ export const earningData = [
     icon: <MdOutlineSupervisorAccount />,
     amount: '39,354',
     percentage: '-4%',
-    title: 'Customers',
+    title: 'Employees',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
@@ -634,7 +634,7 @@ export const earningData = [
     icon: <BsBoxSeam />,
     amount: '4,396',
     percentage: '+23%',
-    title: 'Products',
+    title: 'Customers',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
     pcColor: 'green-600',
@@ -643,7 +643,7 @@ export const earningData = [
     icon: <FiBarChart />,
     amount: '423,39',
     percentage: '+38%',
-    title: 'Sales',
+    title: 'Branches',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
@@ -653,7 +653,7 @@ export const earningData = [
     icon: <HiOutlineRefresh />,
     amount: '39,354',
     percentage: '-12%',
-    title: 'Refunds',
+    title: 'Departments',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
@@ -879,48 +879,43 @@ export const userProfileData = [
 
 export const ordersGrid = [
   {
-    headerText: 'Image',
+    headerText: 'Event Image',
     template: gridOrderImage,
     textAlign: 'Center',
     width: '120',
   },
   {
-    field: 'OrderItems',
-    headerText: 'Item',
+    field: 'EventName',
+    headerText: 'Event Name',
     width: '150',
     editType: 'dropdownedit',
     textAlign: 'Center',
   },
-  { field: 'CustomerName',
-    headerText: 'Customer Name',
-    width: '150',
-    textAlign: 'Center',
-  },
   {
-    field: 'TotalAmount',
-    headerText: 'Total Amount',
+    field: 'EventDate',
+    headerText: 'Event Date',
     format: 'C2',
     textAlign: 'Center',
     editType: 'numericedit',
     width: '150',
   },
   {
-    headerText: 'Status',
+    headerText: 'Event Time',
     template: gridOrderStatus,
-    field: 'OrderItems',
+    field: 'EventTime',
     textAlign: 'Center',
     width: '120',
   },
   {
-    field: 'OrderID',
-    headerText: 'Order ID',
+    field: 'Location',
+    headerText: 'Location',
     width: '120',
     textAlign: 'Center',
   },
 
   {
-    field: 'Location',
-    headerText: 'Location',
+    field: 'Status',
+    headerText: 'Status',
     width: '150',
     textAlign: 'Center',
   },
@@ -929,7 +924,7 @@ export const ordersGrid = [
 export const customersData = [
   {
     CustomerID: 1001,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -943,7 +938,7 @@ export const customersData = [
   {
     CustomerID: 1002,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -958,7 +953,7 @@ export const customersData = [
   {
     CustomerID: 1003,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -972,7 +967,7 @@ export const customersData = [
   {
     CustomerID: 1004,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -986,7 +981,7 @@ export const customersData = [
   {
     CustomerID: 1005,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -999,7 +994,7 @@ export const customersData = [
   },
   {
     CustomerID: 1006,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1013,7 +1008,7 @@ export const customersData = [
   {
     CustomerID: 1007,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1028,7 +1023,7 @@ export const customersData = [
   {
     CustomerID: 1008,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1042,7 +1037,7 @@ export const customersData = [
   {
     CustomerID: 1009,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1056,7 +1051,7 @@ export const customersData = [
   {
     CustomerID: 1010,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -1069,7 +1064,7 @@ export const customersData = [
   },
   {
     CustomerID: 1011,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1083,7 +1078,7 @@ export const customersData = [
   {
     CustomerID: 1012,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1098,7 +1093,7 @@ export const customersData = [
   {
     CustomerID: 1013,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1112,7 +1107,7 @@ export const customersData = [
   {
     CustomerID: 1014,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1126,7 +1121,7 @@ export const customersData = [
   {
     CustomerID: 1015,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -1139,7 +1134,7 @@ export const customersData = [
   },
   {
     CustomerID: 1016,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1153,7 +1148,7 @@ export const customersData = [
   {
     CustomerID: 1017,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1168,7 +1163,7 @@ export const customersData = [
   {
     CustomerID: 1018,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1182,7 +1177,7 @@ export const customersData = [
   {
     CustomerID: 1019,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1196,7 +1191,7 @@ export const customersData = [
   {
     CustomerID: 1020,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -1209,7 +1204,7 @@ export const customersData = [
   },
   {
     CustomerID: 1021,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1223,7 +1218,7 @@ export const customersData = [
   {
     CustomerID: 1022,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1238,7 +1233,7 @@ export const customersData = [
   {
     CustomerID: 1023,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1252,7 +1247,7 @@ export const customersData = [
   {
     CustomerID: 1024,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1266,7 +1261,7 @@ export const customersData = [
   {
     CustomerID: 1025,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -1279,7 +1274,7 @@ export const customersData = [
   },
   {
     CustomerID: 1026,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1293,7 +1288,7 @@ export const customersData = [
   {
     CustomerID: 1027,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1308,7 +1303,7 @@ export const customersData = [
   {
     CustomerID: 1028,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1322,7 +1317,7 @@ export const customersData = [
   {
     CustomerID: 1029,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1336,7 +1331,7 @@ export const customersData = [
   {
     CustomerID: 1030,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -1349,7 +1344,7 @@ export const customersData = [
   },
   {
     CustomerID: 1031,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1363,7 +1358,7 @@ export const customersData = [
   {
     CustomerID: 1032,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1378,7 +1373,7 @@ export const customersData = [
   {
     CustomerID: 1033,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1392,7 +1387,7 @@ export const customersData = [
   {
     CustomerID: 1034,
 
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1406,7 +1401,7 @@ export const customersData = [
   {
     CustomerID: 1035,
 
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -1419,7 +1414,7 @@ export const customersData = [
   },
   {
     CustomerID: 1036,
-    CustomerName: 'Nirav Joshi',
+    EventName: 'Nirav Joshi',
     CustomerEmail: 'nirav@gmail.com',
     CustomerImage:
       avatar2,
@@ -1433,7 +1428,7 @@ export const customersData = [
   {
     CustomerID: 1037,
 
-    CustomerName: 'Sunil Joshi',
+    EventName: 'Sunil Joshi',
     CustomerEmail: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Active',
@@ -1448,7 +1443,7 @@ export const customersData = [
   {
     CustomerID: 1038,
 
-    CustomerName: 'Andrew McDownland',
+    EventName: 'Andrew McDownland',
     CustomerEmail: 'andrew@gmail.com',
     ProjectName: 'Real Homes WP Theme',
     Status: 'Pending',
@@ -1461,7 +1456,7 @@ export const customersData = [
   },
   {
     CustomerID: 1039,
-    CustomerName: 'Christopher Jamil',
+    EventName: 'Christopher Jamil',
     CustomerEmail: 'jamil@gmail.com',
     ProjectName: 'MedicalPro WP Theme',
     Status: 'Completed',
@@ -1474,7 +1469,7 @@ export const customersData = [
   },
   {
     CustomerID: 1040,
-    CustomerName: 'Michael',
+    EventName: 'Michael',
     CustomerEmail: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
     Status: 'Cancel',
@@ -2131,99 +2126,90 @@ export const employeesData = [
 export const ordersData = [
   {
     OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
+    EventName: 'Vinet',
+    EventDate: '2024-10-01',
+    EventTime: '10:30 AM',
     Location: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
-    ProductImage:
-      product6,
+    ProductImage: product6,
   },
   {
     OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
+    EventName: 'Carson Darrin',
+    EventDate: '2024-10-05',
+    EventTime: '12:00 PM',
+     Location: 'Delhi',
     Status: 'complete',
     StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
+    ProductImage: product5,
   },
   {
     OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
+    EventName: 'Fran Perez',
+    EventDate: '2024-11-01',
+    EventTime: '03:00 PM',
+    ocation: 'New York',
     Status: 'active',
     StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
+    ProductImage: product7,
   },
   {
     OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
+    EventName: 'Anika Viseer',
+    EventDate: '2024-12-25',
+    EventTime: '09:00 AM',
+    cation: 'Germany',
     Status: 'canceled',
     StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
+    ProductImage: product4,
   },
   {
     OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
+    EventName: 'Miron Vitold',
+    EventDate: '2024-09-15',
+    EventTime: '05:00 PM',
     Location: 'Spain',
     Status: 'rejected',
     StatusBg: 'red',
-    ProductImage:
-    product1,
+    ProductImage: product1,
   },
   {
     OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
+    EventName: 'Omar Darobe',
+    EventDate: '2024-10-12',
+    EventTime: '02:30 PM',
     Location: 'USA',
     Status: 'canceled',
     StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
+    ProductImage: product2,
   },
   {
     OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
+    EventName: 'Lulia albu',
+    EventDate: '2024-10-08',
+    EventTime: '11:00 AM',
+    tion: 'USA',
     Status: 'active',
     StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
+    ProductImage: product3,
   },
   {
     OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
+    EventName: 'Penjani',
+    EventDate: '2024-09-28',
+    EventTime: '06:00 PM',
+    ation: 'USA',
     Status: 'complete',
     StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
+    ProductImage: product4,
   },
   {
     OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
+    EventName: 'Jie Yan',
+    EventDate: '2024-10-02',
+    EventTime: '10:00 AM',
+    n: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
     ProductImage:
@@ -2231,10 +2217,10 @@ export const ordersData = [
   },
   {
     OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
+    EventName: 'Danai',
+    EventDate: '2024-11-20',
+    EventTime: '03:30 PM',
+    n: 'USA',
     Status: 'canceled',
     StatusBg: '#FF5C8E',
     ProductImage:
@@ -2242,10 +2228,10 @@ export const ordersData = [
   },
   {
     OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
+    EventName: 'Miron',
+    EventDate: '2024-12-15',
+    EventTime: '04:00 PM',
+    ation: 'USA',
     Status: 'active',
     StatusBg: '#03C9D7',
     ProductImage:
@@ -2253,601 +2239,14 @@ export const ordersData = [
   },
   {
     OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
+    EventName: 'Frank',
+    EventDate: '2024-11-30',
+    EventTime: '01:30 PM',
+    tion: 'Delhi',
     Status: 'complete',
     StatusBg: '#8BE78B',
     ProductImage:
       'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
   },
 ];
 
