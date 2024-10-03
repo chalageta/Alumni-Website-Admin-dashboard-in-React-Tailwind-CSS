@@ -4,8 +4,9 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 import { Navbar, Footer, ThemeSettings, Sidebar} from './components';
-import { Dashboard,Orders, Events,Editor,Customers,ColorPicker,Calendar,Kanban,Area,Bar,ColorMapping,Financial,Line,Pie,Pyramid,Stacked} from './pages';
+import { Dashboard,Orders, Events,Editor,Employees,ColorPicker,Calendar,Kanban,Area,Users,Bar,ColorMapping,Financial,Line,Pie,Pyramid,Stacked} from './pages';
 import { useStateContext } from './contexts/ContextProvider';
+import Category from './pages/Category';
 const App = () => {
   const {activeMenu} = useStateContext();
   return (
@@ -36,6 +37,7 @@ const App = () => {
                </div>
               
                <div >
+                <ThemeSettings />
                 <Routes>
                   {/* Dashboard */}
                   <Route path='/' element={<Dashboard /> }/>
@@ -44,11 +46,13 @@ const App = () => {
                   {/* Pages */}
                   <Route path='/orders' element={<Orders /> }/>
                   <Route path='/events' element={<Events /> }/>
-                  <Route path='/customers' element={<Customers /> }/>
+                  <Route path='/employees' element={<Employees /> }/>
+                    <Route path='/users' element={<Users /> }/>
                   {/* Apps */}
                   <Route path='/kanban' element={<Kanban /> }/>
                   <Route path='/editor' element={<Editor /> }/>
                   <Route path='/calendar' element={<Calendar /> }/>
+                    <Route path='/category' element={<Category /> }/>
                   <Route path='/color-picker' element={<ColorPicker /> }/>
                   {/* Charts */}
                   <Route path='/line' element={<Line /> }/>

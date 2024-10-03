@@ -54,9 +54,10 @@ else{
 }
  }, [screenSize])
   return (
-    <div className='flex justify-between p-2 md:mx-6 relative'>
+    <div className='flex justify-between p-2 md:mx-6 relative border-b-1'>
       <NavButton title='Menu' customFunc={()=>setActiveMenu((prevActiveMenu) => !prevActiveMenu)} 
-      color='blue' icon={<AiOutlineMenu />} />
+      color='blue'  icon={<AiOutlineMenu />}  />
+
       <div className='flex'>
         
            <NavButton 

@@ -23,13 +23,15 @@ const Events = () => {
       <Header title="Events" category="Page" />
 
       <GridComponent id='gridComp' dataSource={ordersData}
-      allowPaging>
+      allowPaging
+      allowSorting
+      toolbar={['Search']}>
         <ColumnsDirective>
         {ordersGrid.map((item,index) =>(
           <ColumnDirective key={index} {...item} />
         ))}
         </ColumnsDirective>
-        <Inject services={[Resize,ContextMenu,Filter,Page,Sort,ExcelExport,PdfExport,Edit]} />
+        <Inject services={[Resize,ContextMenu,Filter,Page,Sort,ExcelExport,PdfExport,Edit,Toolbar]} />
       </GridComponent>
     </div>
   )

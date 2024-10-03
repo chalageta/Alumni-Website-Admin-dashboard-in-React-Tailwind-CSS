@@ -3,13 +3,13 @@ import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutline
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
-import { IoMdContacts } from 'react-icons/io';
+import { IoIosExpand, IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
-import { GiLouvrePyramid } from 'react-icons/gi';
-import { GrLocation } from 'react-icons/gr';
+import { GiLouvrePyramid, GiNewspaper } from 'react-icons/gi';
+import { GrPhone } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -74,7 +74,7 @@ const gridEmployeeProfile = (props) => (
 
 const gridEmployeeCountry = (props) => (
   <div className="flex items-center justify-center gap-2">
-    <GrLocation />
+    <GrPhone />
     <span>{props.Country}</span>
   </div>
 );
@@ -124,12 +124,11 @@ const customerGridImage = (props) => (
   <div className="image flex gap-4">
     <img
       className="rounded-full w-10 h-10"
-      src={props.CustomerImage}
+      src={props.UserImage}
       alt="employee"
     />
     <div>
-      <p>{props.EventName}</p>
-      <p>{props.CustomerEmail}</p>
+      <p>{props.Name}</p>
     </div>
   </div>
 );
@@ -392,44 +391,68 @@ export const LinePrimaryYAxis = {
 };
 
 export const customersGrid = [
-  { type: 'checkbox', width: '50' },
+  { type: 'checkbox', 
+    width: '50' },
+
   { headerText: 'Name',
     width: '150',
     template: customerGridImage,
     textAlign: 'Center' },
-  { field: 'ProjectName',
-    headerText: 'Project Name',
+
+  { field: 'UserName',
+    headerText: 'User Name',
     width: '150',
     textAlign: 'Center' },
+  
+  {
+    field: 'Password',
+    headerText: 'Password',
+    width: '100',
+    format: 'C2',
+    textAlign: 'Center' },
+  { field: 'Email',
+    headerText: 'Email',
+    width: '100',
+    format: 'yMd',
+    textAlign: 'Center' },
+
+  { field: 'Phone',
+    headerText: 'Phone No',
+    width: '150',
+    textAlign: 'Center' },
+
+  { field: 'Branch',
+    headerText: 'Branch Name',
+    width: '120',
+    textAlign: 'Center',
+    isPrimaryKey: true,
+  },
   { field: 'Status',
     headerText: 'Status',
     width: '130',
     format: 'yMd',
     textAlign: 'Center',
     template: customerGridStatus },
-  {
-    field: 'Weeks',
-    headerText: 'Weeks',
+
+];
+
+export const categoryGrid = [
+  { type: 'checkbox', 
+    width: '50' },
+
+
+  { field: 'CategoryName',
+    headerText: 'Category Name',
     width: '100',
-    format: 'C2',
     textAlign: 'Center' },
-  { field: 'Budget',
-    headerText: 'Budget',
-    width: '100',
+  
+  
+  { field: 'Status',
+    headerText: 'Status',
+    width: '80',
     format: 'yMd',
-    textAlign: 'Center' },
-
-  { field: 'Location',
-    headerText: 'Location',
-    width: '150',
-    textAlign: 'Center' },
-
-  { field: 'CustomerID',
-    headerText: 'Customer ID',
-    width: '120',
     textAlign: 'Center',
-    isPrimaryKey: true,
-  },
+    template: customerGridStatus },
 
 ];
 
@@ -487,8 +510,16 @@ export const links = [
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: 'events',
+        name: 'employees',
         icon: <IoMdContacts />,
+      },
+      {
+        name: 'Users',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'events',
+        icon: <IoIosExpand />,
       },
       {
         name: 'announcements',
@@ -496,7 +527,7 @@ export const links = [
       },
       {
         name: 'news',
-        icon: <RiContactsLine />,
+        icon: <GiNewspaper />,
       },
       {
         name: 'gallery',
@@ -504,27 +535,27 @@ export const links = [
       },
     ],
   },
-  // {
-  //   title: 'Apps',
-  //   links: [
-  //     {
-  //       name: 'calendar',
-  //       icon: <AiOutlineCalendar />,
-  //     },
-  //     {
-  //       name: 'kanban',
-  //       icon: <BsKanban />,
-  //     },
-  //     {
-  //       name: 'editor',
-  //       icon: <FiEdit />,
-  //     },
-  //     {
-  //       name: 'color-picker',
-  //       icon: <BiColorFill />,
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Apps',
+    links: [
+      {
+        name: 'calendar',
+        icon: <AiOutlineCalendar />,
+      },
+      // {
+      //   name: 'kanban',
+      //   icon: <BsKanban />,
+      // },
+      {
+        name: 'editor',
+        icon: <FiEdit />,
+      },
+      // {
+      //   name: 'color-picker',
+      //   icon: <BiColorFill />,
+      // },
+    ],
+  },
   // {
   //   title: 'Charts',
   //   links: [
@@ -784,7 +815,7 @@ export const medicalproBranding = {
       desc: 'Oct 23, 2021',
     },
     {
-      title: 'Budget',
+      title: 'Email',
       desc: '$98,500',
     },
     {
@@ -907,8 +938,8 @@ export const ordersGrid = [
     width: '120',
   },
   {
-    field: 'Location',
-    headerText: 'Location',
+    field: 'Phone',
+    headerText: 'Phone',
     width: '120',
     textAlign: 'Center',
   },
@@ -921,564 +952,625 @@ export const ordersGrid = [
   },
 ];
 
+export const categoryData = [
+  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },
+  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Technology',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },  {
+    CategoryName: 'Business',
+    Status: 'Active',
+    StatusBg: '#8BE78B',
+  },
+]
+
 export const customersData = [
   {
-    CustomerID: 1001,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1002,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1003,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+    Phone: 'USA',
   },
   {
-    CustomerID: 1004,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+    Phone: 'USA',
   },
   {
-    CustomerID: 1005,
+    Branch: 'HeadOffice',
 
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+    Phone: 'USA',
   },
   {
-    CustomerID: 1006,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1007,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1008,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+    Phone: 'USA',
   },
   {
-    CustomerID: 1009,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+    Phone: 'USA',
   },
   {
-    CustomerID: 1010,
-
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Branch: 'HeadOffice',    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+    Phone: 'USA',
   },
   {
-    CustomerID: 1011,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1012,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1013,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+
+    Phone: 'USA',
   },
   {
-    CustomerID: 1014,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: 'USA',
   },
   {
-    CustomerID: 1015,
+    Branch: 'HeadOffice',
 
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1016,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1017,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1018,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1019,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1020,
+    Branch: 'HeadOffice',
 
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1021,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1022,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1023,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1024,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1025,
+    Branch: 'HeadOffice',
 
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1026,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1027,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1028,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1029,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1030,
+    Branch: 'HeadOffice',
 
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1031,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1032,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1033,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1034,
+    Branch: 'HeadOffice',
 
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1035,
+    Branch: 'HeadOffice',
 
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1036,
-    EventName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
-    CustomerImage:
+    Branch: 'HeadOffice',
+    Name: 'Nirav Joshi',
+    Email: 'nirav@gmail.com',
+    UserImage:
       avatar2,
-    ProjectName: 'Hosting Press HTML',
+    UserName: 'Hosting Press HTML',
     Status: 'Active',
     StatusBg: '#8BE78B',
-    Weeks: '40',
-    Budget: '$2.4k',
-    Location: 'India',
+    Password: '40',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1037,
+    Branch: 'HeadOffice',
 
-    EventName: 'Sunil Joshi',
-    CustomerEmail: 'sunil@gmail.com',
-    ProjectName: 'Elite Admin',
+    Name: 'Sunil Joshi',
+    Email: 'sunil@gmail.com',
+    UserName: 'Elite Admin',
     Status: 'Active',
-    CustomerImage:
+    UserImage:
       avatar3,
 
     StatusBg: '#8BE78B',
-    Weeks: '11',
-    Budget: '$3.9k',
-    Location: 'India',
+    Password: '11',
+    Phone: '+2519239823',
   },
   {
-    CustomerID: 1038,
+    Branch: 'HeadOffice',
 
-    EventName: 'Andrew McDownland',
-    CustomerEmail: 'andrew@gmail.com',
-    ProjectName: 'Real Homes WP Theme',
+    Name: 'Andrew McDownland',
+    Email: 'andrew@gmail.com',
+    UserName: 'Real Homes WP Theme',
     Status: 'Pending',
-    CustomerImage:
+    UserImage:
       avatar4,
     StatusBg: '#FEC90F',
-    Weeks: '19',
-    Budget: '$24.5k',
-    Location: 'USA',
+    Password: '19',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1039,
-    EventName: 'Christopher Jamil',
-    CustomerEmail: 'jamil@gmail.com',
-    ProjectName: 'MedicalPro WP Theme',
+    Branch: 'HeadOffice',
+    Name: 'Christopher Jamil',
+    Email: 'jamil@gmail.com',
+    UserName: 'MedicalPro WP Theme',
     Status: 'Completed',
-    CustomerImage:
+    UserImage:
       avatar,
     StatusBg: '#8BE78B',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
   {
-    CustomerID: 1040,
-    EventName: 'Michael',
-    CustomerEmail: 'michael@gmail.com',
-    ProjectName: 'Weekly WP Theme',
+    Branch: 'HeadOffice',
+    Name: 'Michael',
+    Email: 'michael@gmail.com',
+    UserName: 'Weekly WP Theme',
     Status: 'Cancel',
-    CustomerImage:
+    UserImage:
       avatar2,
     StatusBg: 'red',
-    Weeks: '34',
-    Budget: '$16.5k',
-    Location: 'USA',
+    Password: '34',
+
+    Phone: '+25192378728',
   },
 
 ];
@@ -2125,11 +2217,11 @@ export const employeesData = [
 
 export const ordersData = [
   {
-    OrderID: 10248,
+    OrderID: 'HeadOffice',
     EventName: 'Vinet',
     EventDate: '2024-10-01',
     EventTime: '10:30 AM',
-    Location: 'USA',
+    Phone: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
     ProductImage: product6,
@@ -2139,7 +2231,7 @@ export const ordersData = [
     EventName: 'Carson Darrin',
     EventDate: '2024-10-05',
     EventTime: '12:00 PM',
-     Location: 'Delhi',
+     Phone: 'Delhi',
     Status: 'complete',
     StatusBg: '#8BE78B',
     ProductImage: product5,
@@ -2169,7 +2261,7 @@ export const ordersData = [
     EventName: 'Miron Vitold',
     EventDate: '2024-09-15',
     EventTime: '05:00 PM',
-    Location: 'Spain',
+    Phone: 'Spain',
     Status: 'rejected',
     StatusBg: 'red',
     ProductImage: product1,
@@ -2179,7 +2271,259 @@ export const ordersData = [
     EventName: 'Omar Darobe',
     EventDate: '2024-10-12',
     EventTime: '02:30 PM',
-    Location: 'USA',
+    Phone: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage: product2,
+  },
+  {
+    OrderID: 944895,
+    EventName: 'Lulia albu',
+    EventDate: '2024-10-08',
+    EventTime: '11:00 AM',
+    tion: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage: product3,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Penjani',
+    EventDate: '2024-09-28',
+    EventTime: '06:00 PM',
+    ation: 'USA',
+    Status: 'complete',
+    StatusBg: '#8BE78B',
+    ProductImage: product4,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Jie Yan',
+    EventDate: '2024-10-02',
+    EventTime: '10:00 AM',
+    n: 'USA',
+    Status: 'pending',
+    StatusBg: '#FB9678',
+    ProductImage:
+      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
+  },
+  {
+    OrderID: 874534,
+    EventName: 'Danai',
+    EventDate: '2024-11-20',
+    EventTime: '03:30 PM',
+    n: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
+  },
+  {
+    OrderID: 38489,
+    EventName: 'Miron',
+    EventDate: '2024-12-15',
+    EventTime: '04:00 PM',
+    ation: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage:
+      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
+  },
+  {
+    OrderID: 94757,
+    EventName: 'Omar Darobe',
+    EventDate: '2024-10-12',
+    EventTime: '02:30 PM',
+    Phone: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage: product2,
+  },
+  {
+    OrderID: 944895,
+    EventName: 'Lulia albu',
+    EventDate: '2024-10-08',
+    EventTime: '11:00 AM',
+    tion: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage: product3,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Penjani',
+    EventDate: '2024-09-28',
+    EventTime: '06:00 PM',
+    ation: 'USA',
+    Status: 'complete',
+    StatusBg: '#8BE78B',
+    ProductImage: product4,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Jie Yan',
+    EventDate: '2024-10-02',
+    EventTime: '10:00 AM',
+    n: 'USA',
+    Status: 'pending',
+    StatusBg: '#FB9678',
+    ProductImage:
+      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
+  },
+  {
+    OrderID: 874534,
+    EventName: 'Danai',
+    EventDate: '2024-11-20',
+    EventTime: '03:30 PM',
+    n: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
+  },
+  {
+    OrderID: 38489,
+    EventName: 'Miron',
+    EventDate: '2024-12-15',
+    EventTime: '04:00 PM',
+    ation: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage:
+      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
+  },
+  {
+    OrderID: 94757,
+    EventName: 'Omar Darobe',
+    EventDate: '2024-10-12',
+    EventTime: '02:30 PM',
+    Phone: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage: product2,
+  },
+  {
+    OrderID: 944895,
+    EventName: 'Lulia albu',
+    EventDate: '2024-10-08',
+    EventTime: '11:00 AM',
+    tion: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage: product3,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Penjani',
+    EventDate: '2024-09-28',
+    EventTime: '06:00 PM',
+    ation: 'USA',
+    Status: 'complete',
+    StatusBg: '#8BE78B',
+    ProductImage: product4,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Jie Yan',
+    EventDate: '2024-10-02',
+    EventTime: '10:00 AM',
+    n: 'USA',
+    Status: 'pending',
+    StatusBg: '#FB9678',
+    ProductImage:
+      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
+  },
+  {
+    OrderID: 874534,
+    EventName: 'Danai',
+    EventDate: '2024-11-20',
+    EventTime: '03:30 PM',
+    n: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
+  },
+  {
+    OrderID: 38489,
+    EventName: 'Miron',
+    EventDate: '2024-12-15',
+    EventTime: '04:00 PM',
+    ation: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage:
+      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
+  },
+  {
+    OrderID: 94757,
+    EventName: 'Omar Darobe',
+    EventDate: '2024-10-12',
+    EventTime: '02:30 PM',
+    Phone: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage: product2,
+  },
+  {
+    OrderID: 944895,
+    EventName: 'Lulia albu',
+    EventDate: '2024-10-08',
+    EventTime: '11:00 AM',
+    tion: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage: product3,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Penjani',
+    EventDate: '2024-09-28',
+    EventTime: '06:00 PM',
+    ation: 'USA',
+    Status: 'complete',
+    StatusBg: '#8BE78B',
+    ProductImage: product4,
+  },
+  {
+    OrderID: 845954,
+    EventName: 'Jie Yan',
+    EventDate: '2024-10-02',
+    EventTime: '10:00 AM',
+    n: 'USA',
+    Status: 'pending',
+    StatusBg: '#FB9678',
+    ProductImage:
+      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
+  },
+  {
+    OrderID: 874534,
+    EventName: 'Danai',
+    EventDate: '2024-11-20',
+    EventTime: '03:30 PM',
+    n: 'USA',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
+  },
+  {
+    OrderID: 38489,
+    EventName: 'Miron',
+    EventDate: '2024-12-15',
+    EventTime: '04:00 PM',
+    ation: 'USA',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage:
+      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
+  },
+  {
+    OrderID: 94757,
+    EventName: 'Omar Darobe',
+    EventDate: '2024-10-12',
+    EventTime: '02:30 PM',
+    Phone: 'USA',
     Status: 'canceled',
     StatusBg: '#FF5C8E',
     ProductImage: product2,
@@ -2254,7 +2598,7 @@ export const scheduleData = [
   {
     Id: 1,
     Subject: 'Explosion of Betelgeuse Star',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-10T04:00:00.000Z',
     EndTime: '2021-01-10T05:30:00.000Z',
     CategoryColor: '#1aaa55',
@@ -2262,7 +2606,7 @@ export const scheduleData = [
   {
     Id: 2,
     Subject: 'Thule Air Crash Report',
-    Location: 'Newyork City',
+    Phone: 'Newyork City',
     StartTime: '2021-01-11T06:30:00.000Z',
     EndTime: '2021-01-11T08:30:00.000Z',
     CategoryColor: '#357cd2',
@@ -2270,7 +2614,7 @@ export const scheduleData = [
   {
     Id: 3,
     Subject: 'Blue Moon Eclipse',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-12T04:00:00.000Z',
     EndTime: '2021-01-12T05:30:00.000Z',
     CategoryColor: '#7fa900',
@@ -2278,7 +2622,7 @@ export const scheduleData = [
   {
     Id: 4,
     Subject: 'Meteor Showers in 2021',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-13T07:30:00.000Z',
     EndTime: '2021-01-13T09:00:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2286,7 +2630,7 @@ export const scheduleData = [
   {
     Id: 5,
     Subject: 'Milky Way as Melting pot',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-14T06:30:00.000Z',
     EndTime: '2021-01-14T08:30:00.000Z',
     CategoryColor: '#00bdae',
@@ -2294,7 +2638,7 @@ export const scheduleData = [
   {
     Id: 6,
     Subject: 'Mysteries of Bermuda Triangle',
-    Location: 'Bermuda',
+    Phone: 'Bermuda',
     StartTime: '2021-01-14T04:00:00.000Z',
     EndTime: '2021-01-14T05:30:00.000Z',
     CategoryColor: '#f57f17',
@@ -2302,7 +2646,7 @@ export const scheduleData = [
   {
     Id: 7,
     Subject: 'Glaciers and Snowflakes',
-    Location: 'Himalayas',
+    Phone: 'Himalayas',
     StartTime: '2021-01-15T05:30:00.000Z',
     EndTime: '2021-01-15T07:00:00.000Z',
     CategoryColor: '#1aaa55',
@@ -2310,7 +2654,7 @@ export const scheduleData = [
   {
     Id: 8,
     Subject: 'Life on Mars',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-16T03:30:00.000Z',
     EndTime: '2021-01-16T04:30:00.000Z',
     CategoryColor: '#357cd2',
@@ -2318,7 +2662,7 @@ export const scheduleData = [
   {
     Id: 9,
     Subject: 'Alien Civilization',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-18T05:30:00.000Z',
     EndTime: '2021-01-18T07:30:00.000Z',
     CategoryColor: '#7fa900',
@@ -2326,7 +2670,7 @@ export const scheduleData = [
   {
     Id: 10,
     Subject: 'Wildlife Galleries',
-    Location: 'Africa',
+    Phone: 'Africa',
     StartTime: '2021-01-20T05:30:00.000Z',
     EndTime: '2021-01-20T07:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2334,7 +2678,7 @@ export const scheduleData = [
   {
     Id: 11,
     Subject: 'Best Photography 2021',
-    Location: 'London',
+    Phone: 'London',
     StartTime: '2021-01-21T04:00:00.000Z',
     EndTime: '2021-01-21T05:30:00.000Z',
     CategoryColor: '#00bdae',
@@ -2342,7 +2686,7 @@ export const scheduleData = [
   {
     Id: 12,
     Subject: 'Smarter Puppies',
-    Location: 'Sweden',
+    Phone: 'Sweden',
     StartTime: '2021-01-08T04:30:00.000Z',
     EndTime: '2021-01-08T06:00:00.000Z',
     CategoryColor: '#f57f17',
@@ -2350,7 +2694,7 @@ export const scheduleData = [
   {
     Id: 13,
     Subject: 'Myths of Andromeda Galaxy',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-06T05:00:00.000Z',
     EndTime: '2021-01-06T07:00:00.000Z',
     CategoryColor: '#1aaa55',
@@ -2358,7 +2702,7 @@ export const scheduleData = [
   {
     Id: 14,
     Subject: 'Aliens vs Humans',
-    Location: 'Research Center of USA',
+    Phone: 'Research Center of USA',
     StartTime: '2021-01-05T04:30:00.000Z',
     EndTime: '2021-01-05T06:00:00.000Z',
     CategoryColor: '#357cd2',
@@ -2366,7 +2710,7 @@ export const scheduleData = [
   {
     Id: 15,
     Subject: 'Facts of Humming Birds',
-    Location: 'California',
+    Phone: 'California',
     StartTime: '2021-01-19T04:00:00.000Z',
     EndTime: '2021-01-19T05:30:00.000Z',
     CategoryColor: '#7fa900',
@@ -2374,7 +2718,7 @@ export const scheduleData = [
   {
     Id: 16,
     Subject: 'Sky Gazers',
-    Location: 'Alaska',
+    Phone: 'Alaska',
     StartTime: '2021-01-22T05:30:00.000Z',
     EndTime: '2021-01-22T07:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2382,7 +2726,7 @@ export const scheduleData = [
   {
     Id: 17,
     Subject: 'The Cycle of Seasons',
-    Location: 'Research Center of USA',
+    Phone: 'Research Center of USA',
     StartTime: '2021-01-11T00:00:00.000Z',
     EndTime: '2021-01-11T02:00:00.000Z',
     CategoryColor: '#00bdae',
@@ -2390,7 +2734,7 @@ export const scheduleData = [
   {
     Id: 18,
     Subject: 'Space Galaxies and Planets',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-11T11:30:00.000Z',
     EndTime: '2021-01-11T13:00:00.000Z',
     CategoryColor: '#f57f17',
@@ -2398,7 +2742,7 @@ export const scheduleData = [
   {
     Id: 19,
     Subject: 'Lifecycle of Bumblebee',
-    Location: 'San Fransisco',
+    Phone: 'San Fransisco',
     StartTime: '2021-01-14T00:30:00.000Z',
     EndTime: '2021-01-14T02:00:00.000Z',
     CategoryColor: '#7fa900',
@@ -2406,7 +2750,7 @@ export const scheduleData = [
   {
     Id: 20,
     Subject: 'Alien Civilization',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-14T10:30:00.000Z',
     EndTime: '2021-01-14T12:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2414,7 +2758,7 @@ export const scheduleData = [
   {
     Id: 21,
     Subject: 'Alien Civilization',
-    Location: 'Space Center USA',
+    Phone: 'Space Center USA',
     StartTime: '2021-01-10T08:30:00.000Z',
     EndTime: '2021-01-10T10:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2422,7 +2766,7 @@ export const scheduleData = [
   {
     Id: 22,
     Subject: 'The Cycle of Seasons',
-    Location: 'Research Center of USA',
+    Phone: 'Research Center of USA',
     StartTime: '2021-01-12T09:00:00.000Z',
     EndTime: '2021-01-12T10:30:00.000Z',
     CategoryColor: '#00bdae',
@@ -2430,7 +2774,7 @@ export const scheduleData = [
   {
     Id: 23,
     Subject: 'Sky Gazers',
-    Location: 'Greenland',
+    Phone: 'Greenland',
     StartTime: '2021-01-15T09:00:00.000Z',
     EndTime: '2021-01-15T10:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2438,7 +2782,7 @@ export const scheduleData = [
   {
     Id: 24,
     Subject: 'Facts of Humming Birds',
-    Location: 'California',
+    Phone: 'California',
     StartTime: '2021-01-16T07:00:00.000Z',
     EndTime: '2021-01-16T09:00:00.000Z',
     CategoryColor: '#7fa900',
@@ -2517,7 +2861,7 @@ export const lineCustomSeries = [
   { dataSource: lineChartData[2],
     xName: 'x',
     yName: 'y',
-    name: 'India',
+    name: '+2519239823',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
     type: 'Line' },
@@ -2586,7 +2930,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Budget',
+    name: 'Email',
     type: 'StackingColumn',
     background: 'blue',
 
