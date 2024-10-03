@@ -13,13 +13,26 @@ const NavButton = ({
   title, customFunc,icon, color, dotColor,
 }) => (
 
+
 <TooltipComponent content={title} position='BottomCenter'>
-  <button type='button' onClick={customFunc} style={{color}} className='relative text-xl rounded-full p-3 hover:bg-light-gray'>
-    <span className=' inline-flex absolute rounded-full h-4 w-4 right-2 top-2' style={{background: dotColor}}>
+  <button 
+    type='button' 
+    onClick={customFunc} 
+    style={{color}} 
+    className='relative text-4xl rounded-full p-4 transition duration-300 ease-in-out transform hover:bg-gray-200 hover:scale-110 shadow-md'
+  >
+    <span 
+      className='absolute inline-flex rounded-full h-2 w-2 right-1 top-1' 
+      style={{background: dotColor}} 
+    />
+    
+    {/* Icon */}
+    <span className="text-3xl">
       {icon}
     </span>
   </button>
 </TooltipComponent>
+
 )
 const NavBar = () => {
  const { activeMenu, 
@@ -29,6 +42,7 @@ const NavBar = () => {
   handleClick,
     screenSize,
       setScreenSize,
+      currentColor,
  } = useStateContext();
 
  useEffect(() => { 
@@ -55,22 +69,22 @@ else{
  }, [screenSize])
   return (
     <div className='flex justify-between p-2 md:mx-6 relative border-b-1'>
-      <NavButton title='Menu' customFunc={()=>setActiveMenu((prevActiveMenu) => !prevActiveMenu)} 
-      color='blue'  icon={<AiOutlineMenu />}  />
+      <NavButton title='Menu'  customFunc={()=>setActiveMenu((prevActiveMenu) => !prevActiveMenu)} 
+      color={currentColor}  icon={<AiOutlineMenu />}  />
 
       <div className='flex'>
         
            <NavButton 
          title='Chat' 
          customFunc={()=> handleClick("chat") } 
-         color='blue' 
+         color={currentColor} 
          dotColor='#03C9D7'
          icon={<BsChatLeft />} />
           
           <NavButton 
          title='Notification' 
          customFunc={()=> handleClick("notification") } 
-         color='blue' 
+         color={currentColor} 
          dotColor='#03C9D7'
          icon={<RiNotification3Line />} />
 <TooltipComponent content="profile" position='BottomCenter'>

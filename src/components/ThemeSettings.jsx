@@ -5,7 +5,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import { themeColors } from '../data/constants'
 import { useStateContext } from '../contexts/ContextProvider'
 const ThemeSettings = () => {
-  const {setColor, setMode, CurrentMode, currentColor, setThemeSettings } = useStateContext();
+  const {setColor, setMode, currentMode, currentColor, setThemeSettings } = useStateContext();
   return (
     <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0 '>
       <div className='h-screen float-right dark:text-gray-200 bg-white dark:[#484B52] w-400'>
@@ -29,8 +29,8 @@ className='text-2xl hover:drop-shadow-md p-3 hover:bg-light-gray
             name='theme'
             value='Light'
             className='cursor-pointer' 
-            onChange={() =>{}}
-            checked= {true}/>
+            onChange={setMode}
+            checked= {currentMode === 'Light'}/>
             <label htmlFor='Light' className='ml-4 text-md cursor-pointer'>Light</label>
           </div>
           <div className='mt-4'>
@@ -40,9 +40,9 @@ className='text-2xl hover:drop-shadow-md p-3 hover:bg-light-gray
             name='theme'
             value='Dark'
             className='cursor-pointer' 
-            onChange={() =>{}}
-            checked= {true}/>
-            <label htmlFor='dark' className='ml-4 text-md cursor-pointer'>Dark</label>
+            onChange={setMode}
+            checked= {currentMode === 'Dark'}/>
+            <label htmlFor='Dark' className='ml-4 text-md cursor-pointer'>Dark</label>
           </div>
         </div>
          <div className='flex-col border-t-1 border-color p-4 ml-4'>
@@ -52,8 +52,11 @@ className='text-2xl hover:drop-shadow-md p-3 hover:bg-light-gray
               <TooltipComponent key={index} content={item.name} position='TopCenter'>
                 <div className='relative mt-2 cursor-pointer flex gap-5 items-center'>
                   <button type='button' className='rounded-full w-10 h-10 cursor-pointer' style={{backgroundColor: item.color}}
-                  onClick={() => {}}>
-                    <BsCheck className= {`ml-2 text-2xl text-white ${true ? 'block' : 'hidden'}`} />
+                  onClick={() => 
+                    setColor(item.color)}>
+                    <BsCheck 
+                    className= {`ml-2 text-2xl text-white
+                     ${item.color === currentColor ? 'block' : 'hidden'}`} />
                   </button>
                 </div>
               </TooltipComponent>

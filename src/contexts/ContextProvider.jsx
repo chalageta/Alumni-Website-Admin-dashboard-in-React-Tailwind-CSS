@@ -11,17 +11,24 @@ const [activeMenu, setActiveMenu] = useState(false);
 const [isClicked, setIsClicked] = useState(initialState);
 const [screenSize, setScreenSize] = useState(undefined);
 const [currentColor, setCurrentColor] = useState('#03C9D7');
-const [currentMode, setCurrentMode] = useState('Light');
-const [themeSettings, setthemeSettings] = useState(false);
+const [currentMode, setCurrentMode] = useState('Dark');
+const [themeSettings, setThemeSettings] = useState(false);
 
-const setMode = (e) =>{
+const setMode = (e) => {
+   // Update the current mode state
    setCurrentMode(e.target.value);
-   localStorage.setItem('themeMode', e.target.value)
-}
 
-const setColor = (e) =>{
-   setCurrentColor(e.target.value);
-   localStorage.setItem('colorMode', e.target.value)
+   // Save the mode to localStorage
+   localStorage.setItem('themeMode', e.target.value);
+
+   // Close the theme settings (optional)
+   setThemeSettings(false);
+};
+
+const setColor = (color) =>{
+   setCurrentColor(color);
+   localStorage.setItem('colorMode', color);
+   setThemeSettings(false);
 }
 
 const handleClick = (clicked) => {
@@ -30,7 +37,8 @@ const handleClick = (clicked) => {
 
   return (
    <StateContext.Provider
-   value={{activeMenu,
+   value={{
+      activeMenu,
       setActiveMenu,
       isClicked,
       setIsClicked,
@@ -39,9 +47,11 @@ const handleClick = (clicked) => {
       setScreenSize,
       currentColor,
       currentMode,
-      setCurrentColor,
-      setCurrentMode,
-      themeSettings, setthemeSettings,
+      themeSettings, 
+      setThemeSettings,
+      setMode,
+      setColor,
+
 
    }}>
 

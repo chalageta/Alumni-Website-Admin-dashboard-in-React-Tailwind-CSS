@@ -6,6 +6,7 @@ import { earningData,SparklineAreaData,ecomPieChartData } from '../data/constant
 import { useStateContext } from '../contexts/ContextProvider';
 import { IoMdTrain } from 'react-icons/io';
 const Dashboard = () => {
+  const {currentColor} = useStateContext();
   return (
     <div className='mt-12'>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
@@ -20,7 +21,7 @@ const Dashboard = () => {
           <div className='mt-6'>
             <Button 
             color="white"
-            bgColor="blue"
+            bgColor={currentColor}
             text="Download" 
             borderRadius= "10px"
             size='md'/>

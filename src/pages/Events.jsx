@@ -19,7 +19,7 @@ import { Header } from '../components';
 
 const Events = () => {
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10'>
+    <div className='md:m-8 m-0 p-2 md:p-8 bg-white rounded-3xl'>
       <Header title="Events" category="Page" />
 
       <GridComponent id='gridComp' dataSource={ordersData}
