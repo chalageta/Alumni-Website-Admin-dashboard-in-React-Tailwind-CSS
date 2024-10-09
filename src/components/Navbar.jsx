@@ -22,12 +22,12 @@ const NavButton = ({
     className='relative text-4xl rounded-full p-4 transition duration-300 ease-in-out transform hover:bg-gray-200 hover:scale-110 shadow-md'
   >
     <span 
-      className='absolute inline-flex rounded-full h-2 w-2 right-1 top-1' 
+      className='absolute inline-flex rounded-full h-1 w-1 right-1 top-1' 
       style={{background: dotColor}} 
     />
     
     {/* Icon */}
-    <span className="text-3xl">
+    <span className="text-xl">
       {icon}
     </span>
   </button>
@@ -43,6 +43,8 @@ const NavBar = () => {
     screenSize,
       setScreenSize,
       currentColor,
+      userProfile,
+      setUserProfile,
  } = useStateContext();
 
  useEffect(() => { 
@@ -88,7 +90,7 @@ else{
          dotColor='#03C9D7'
          icon={<RiNotification3Line />} />
 <TooltipComponent content="profile" position='BottomCenter'>
-  <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() => handleClick('userProfile')}>
+  <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() => setUserProfile(true)}>
     <img src={profile} className='rounded-full w-7 h-7' alt="" />
     <p>
       <span className='text-gray-400 text-14'>Hi</span>{' '}
@@ -100,7 +102,7 @@ else{
 </TooltipComponent>
 {isClicked.chat && <Chat />} 
 {isClicked.notification && <Notification />} 
-{isClicked.userProfile && <UserProfile />} 
+{userProfile && <UserProfile />} 
       </div>
     </div>
   )

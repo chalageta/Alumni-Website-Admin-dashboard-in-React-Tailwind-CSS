@@ -16,6 +16,7 @@ import {
 } from '@syncfusion/ej2-react-grids';
 import { ordersData,contextMenuItems,ordersGrid } from '../data/constants';
 import { Header } from '../components';
+import './Users.css'
 
 const Events = () => {
   return (

@@ -1,0 +1,42 @@
+.custom-select {
+  padding: 8px 12px; /* Add padding for better aesthetics */
+  border: 2px solid #4caf50; /* Custom border color */
+  border-radius: 5px; /* Rounded corners */
+  background-color: white; /* Background color */
+  color: #333; /* Text color */
+  font-size: 16px; /* Font size */
+  transition: border-color 0.3s; /* Transition effect */
+}
+
+.custom-select:focus {
+  outline: none; /* Remove outline */
+  border-color: #007bff; /* Change border color on focus */
+}
+
+.custom-select option {
+  color: #333; /* Text color for options */
+}
+
+/* Style for the label */
+label {
+  font-weight: 600; /* Make label bold */
+  font-size: 16px; /* Increase font size for the label */
+}
+
+
+.event-template {
+  display: flex;
+  align-items: center;
+}
+
+.event-image {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  border-radius: 50%; /* Make the image circular */
+  margin-right: 10px; /* Space between the image and text */
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column; /* Stack the details vertically */
+}

@@ -14,11 +14,11 @@ import {
   Sort,
   Filter
 } from '@syncfusion/ej2-react-grids';
-import { customersData, customersGrid } from '../data/constants';
+import { newsData, newsGrid } from '../data/constants';
 import { Header } from '../components';
 import './Users.css'; // Import your CSS file
 
-const Users = () => {
+const News = () => {
   const gridRef = useRef(null);
   const [itemsPerPage, setItemsPerPage] = useState(10); // Default to 10 items per page
 
@@ -38,7 +38,7 @@ const Users = () => {
 
   return (
     <div className='m-2 md:m-10 p-2 md:p-10 bg-white'>
-      <Header title="Users" category="Page" />
+      <Header title="News" category="Page" />
 
       {/* Dropdown for items per page */}
       <div className="mb-4">
@@ -54,7 +54,7 @@ const Users = () => {
       <GridComponent
         ref={gridRef}
         width='auto'
-        dataSource={customersData}
+        dataSource={newsData}
         allowPaging
         allowSorting
         allowExcelExport
@@ -65,7 +65,7 @@ const Users = () => {
         pageSettings={{ pageSize: itemsPerPage }} // Set the page size here
       >
         <ColumnsDirective>
-          {customersGrid.map((item, index) => (
+          {newsGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
           ))}
         </ColumnsDirective>
@@ -75,4 +75,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default News;

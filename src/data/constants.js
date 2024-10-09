@@ -436,6 +436,35 @@ export const customersGrid = [
 
 ];
 
+export const newsGrid = [
+  { type: 'checkbox', 
+    width: '50' },
+
+  { headerText: 'News Title',
+    width: '150',
+    template: customerGridImage,
+    textAlign: 'Center' },
+
+  { field: 'Description',
+    headerText: 'Description',
+    width: '150',
+    textAlign: 'Center' },
+  
+  {
+    field: 'Date',
+    headerText: 'Date',
+    width: '100',
+    format: 'C2',
+    textAlign: 'Center' },
+
+  { field: 'Action',
+    headerText: 'Action',
+    width: '100',
+    format: 'yMd',
+    textAlign: 'Center' },
+
+];
+
 export const categoryGrid = [
   { type: 'checkbox', 
     width: '50' },
@@ -503,7 +532,6 @@ export const links = [
   },
 
   {
-    title: 'Pages',
     links: [
       {
         name: 'category',
@@ -530,13 +558,13 @@ export const links = [
         icon: <GiNewspaper />,
       },
       {
-        name: 'gallery',
+        name: 'imageGallery',
         icon: <RiContactsLine />,
       },
     ],
   },
   {
-    title: 'Apps',
+   
     links: [
       {
         name: 'calendar',
@@ -959,82 +987,18 @@ export const categoryData = [
     StatusBg: '#8BE78B',
   },
   {
-    CategoryName: 'Technology',
+    CategoryName: 'Social',
     Status: 'Active',
     StatusBg: '#8BE78B',
   },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Technology',
+    CategoryName: 'Sports',
     Status: 'Active',
     StatusBg: '#8BE78B',
   },  {
     CategoryName: 'Business',
     Status: 'Active',
     StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },  {
-    CategoryName: 'Business',
-    Status: 'Active',
-    StatusBg: '#8BE78B',
-  },
+  }, 
 ]
 
 export const customersData = [
@@ -1574,6 +1538,49 @@ export const customersData = [
   },
 
 ];
+
+
+
+export const newsData = [
+  {
+    Name: 'Nirav Joshi',
+    Description: 'nirav@gmail.com',
+    UserImage:
+      avatar2,
+    Date: 'Hosting Press HTML',
+    Action: 'Active',
+    
+  },
+
+   {
+    Name: 'Nirav Joshi',
+    Description: 'nirav@gmail.com',
+    UserImage:
+      avatar2,
+    Date: 'Hosting Press HTML',
+    Action: 'Active',
+    
+  },
+   {
+    Name: 'Nirav Joshi',
+    Description: 'nirav@gmail.com',
+    UserImage:
+      avatar2,
+    Date: 'Hosting Press HTML',
+    Action: 'Active',
+    
+  },
+   {
+    Name: 'Nirav Joshi',
+    Description: 'nirav@gmail.com',
+    UserImage:
+      avatar2,
+    Date: 'Hosting Press HTML',
+    Action: 'Active',
+    
+  },
+  ];
+
 
 export const employeesData = [
   {
@@ -2215,6 +2222,7 @@ export const employeesData = [
   },
 ];
 
+
 export const ordersData = [
   {
     OrderID: 'HeadOffice',
@@ -2601,6 +2609,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-10T04:00:00.000Z',
     EndTime: '2021-01-10T05:30:00.000Z',
+     imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#1aaa55',
   },
   {
@@ -2609,6 +2618,8 @@ export const scheduleData = [
     Phone: 'Newyork City',
     StartTime: '2021-01-11T06:30:00.000Z',
     EndTime: '2021-01-11T08:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#357cd2',
   },
   {
@@ -2617,6 +2628,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-12T04:00:00.000Z',
     EndTime: '2021-01-12T05:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#7fa900',
   },
   {
@@ -2625,6 +2637,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-13T07:30:00.000Z',
     EndTime: '2021-01-13T09:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#ea7a57',
   },
   {
@@ -2633,6 +2646,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-14T06:30:00.000Z',
     EndTime: '2021-01-14T08:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#00bdae',
   },
   {
@@ -2641,6 +2655,7 @@ export const scheduleData = [
     Phone: 'Bermuda',
     StartTime: '2021-01-14T04:00:00.000Z',
     EndTime: '2021-01-14T05:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#f57f17',
   },
   {
@@ -2649,6 +2664,7 @@ export const scheduleData = [
     Phone: 'Himalayas',
     StartTime: '2021-01-15T05:30:00.000Z',
     EndTime: '2021-01-15T07:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#1aaa55',
   },
   {
@@ -2657,6 +2673,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-16T03:30:00.000Z',
     EndTime: '2021-01-16T04:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#357cd2',
   },
   {
@@ -2665,6 +2682,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-18T05:30:00.000Z',
     EndTime: '2021-01-18T07:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#7fa900',
   },
   {
@@ -2673,6 +2691,7 @@ export const scheduleData = [
     Phone: 'Africa',
     StartTime: '2021-01-20T05:30:00.000Z',
     EndTime: '2021-01-20T07:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#ea7a57',
   },
   {
@@ -2681,6 +2700,7 @@ export const scheduleData = [
     Phone: 'London',
     StartTime: '2021-01-21T04:00:00.000Z',
     EndTime: '2021-01-21T05:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#00bdae',
   },
   {
@@ -2689,6 +2709,7 @@ export const scheduleData = [
     Phone: 'Sweden',
     StartTime: '2021-01-08T04:30:00.000Z',
     EndTime: '2021-01-08T06:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#f57f17',
   },
   {
@@ -2697,6 +2718,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-06T05:00:00.000Z',
     EndTime: '2021-01-06T07:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#1aaa55',
   },
   {
@@ -2705,6 +2727,7 @@ export const scheduleData = [
     Phone: 'Research Center of USA',
     StartTime: '2021-01-05T04:30:00.000Z',
     EndTime: '2021-01-05T06:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#357cd2',
   },
   {
@@ -2713,6 +2736,7 @@ export const scheduleData = [
     Phone: 'California',
     StartTime: '2021-01-19T04:00:00.000Z',
     EndTime: '2021-01-19T05:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#7fa900',
   },
   {
@@ -2721,6 +2745,7 @@ export const scheduleData = [
     Phone: 'Alaska',
     StartTime: '2021-01-22T05:30:00.000Z',
     EndTime: '2021-01-22T07:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#ea7a57',
   },
   {
@@ -2729,6 +2754,7 @@ export const scheduleData = [
     Phone: 'Research Center of USA',
     StartTime: '2021-01-11T00:00:00.000Z',
     EndTime: '2021-01-11T02:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#00bdae',
   },
   {
@@ -2737,6 +2763,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-11T11:30:00.000Z',
     EndTime: '2021-01-11T13:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#f57f17',
   },
   {
@@ -2745,6 +2772,7 @@ export const scheduleData = [
     Phone: 'San Fransisco',
     StartTime: '2021-01-14T00:30:00.000Z',
     EndTime: '2021-01-14T02:00:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#7fa900',
   },
   {
@@ -2753,6 +2781,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-14T10:30:00.000Z',
     EndTime: '2021-01-14T12:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#ea7a57',
   },
   {
@@ -2761,6 +2790,7 @@ export const scheduleData = [
     Phone: 'Space Center USA',
     StartTime: '2021-01-10T08:30:00.000Z',
     EndTime: '2021-01-10T10:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#ea7a57',
   },
   {
@@ -2769,6 +2799,7 @@ export const scheduleData = [
     Phone: 'Research Center of USA',
     StartTime: '2021-01-12T09:00:00.000Z',
     EndTime: '2021-01-12T10:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#00bdae',
   },
   {
@@ -2777,6 +2808,7 @@ export const scheduleData = [
     Phone: 'Greenland',
     StartTime: '2021-01-15T09:00:00.000Z',
     EndTime: '2021-01-15T10:30:00.000Z',
+    imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#ea7a57',
   },
   {
@@ -2785,6 +2817,7 @@ export const scheduleData = [
     Phone: 'California',
     StartTime: '2021-01-16T07:00:00.000Z',
     EndTime: '2021-01-16T09:00:00.000Z',
+    imageUrl: 'https://images.pexels.com/photos/159213/hall-congress-architecture-building-159213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     CategoryColor: '#7fa900',
   },
 ];

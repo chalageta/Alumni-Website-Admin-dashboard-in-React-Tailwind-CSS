@@ -13,6 +13,7 @@ const [screenSize, setScreenSize] = useState(undefined);
 const [currentColor, setCurrentColor] = useState('#03C9D7');
 const [currentMode, setCurrentMode] = useState('Dark');
 const [themeSettings, setThemeSettings] = useState(false);
+const [userProfile, setUserProfile] = useState(false);
 
 const setMode = (e) => {
    // Update the current mode state
@@ -23,12 +24,14 @@ const setMode = (e) => {
 
    // Close the theme settings (optional)
    setThemeSettings(false);
+   setUserProfile(false);
 };
 
 const setColor = (color) =>{
    setCurrentColor(color);
    localStorage.setItem('colorMode', color);
    setThemeSettings(false);
+   setUserProfile(false);
 }
 
 const handleClick = (clicked) => {
@@ -51,6 +54,8 @@ const handleClick = (clicked) => {
       setThemeSettings,
       setMode,
       setColor,
+      setUserProfile,
+      userProfile
 
 
    }}>

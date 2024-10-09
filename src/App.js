@@ -4,7 +4,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 import { Navbar, Footer, ThemeSettings, Sidebar} from './components';
-import { Dashboard,Orders, Events,Editor,Employees,ColorPicker,Calendar,Kanban,Area,Users,Bar,ColorMapping,Financial,Line,Pie,Pyramid,Stacked} from './pages';
+import { Add_category, ImageGallery, Dashboard,Orders, Events,Editor,Employees,News,Calendar,Kanban,Area,Users,Bar,ColorMapping,Financial,Line,Pie,Pyramid,Stacked} from './pages';
 import { useStateContext } from './contexts/ContextProvider';
 import Category from './pages/Category';
 const App = () => {
@@ -48,13 +48,17 @@ const App = () => {
                   <Route path='/events' element={<Events /> }/>
                   <Route path='/employees' element={<Employees /> }/>
                     <Route path='/users' element={<Users /> }/>
+                      <Route path='/category' element={<Category /> }/>
+                  <Route path='/news' element={<News /> }/>
+                
+
+                      <Route path='/add_category' element={<Add_category /> }/>
+                      <Route path='/imageGallery' element={<ImageGallery /> }/>
                   {/* Apps */}
                   <Route path='/kanban' element={<Kanban /> }/>
                   <Route path='/editor' element={<Editor /> }/>
                   <Route path='/calendar' element={<Calendar /> }/>
-                    <Route path='/category' element={<Category /> }/>
-                  <Route path='/color-picker' element={<ColorPicker /> }/>
-                  {/* Charts */}
+                    {/* Charts */}
                   <Route path='/line' element={<Line /> }/>
                   <Route path='/area' element={<Area /> }/>
                   <Route path='/bar' element={<bar /> }/>
