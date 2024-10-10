@@ -5,6 +5,7 @@ export { default as Users } from './Users';
 export { default as Add_category } from './Add_category';
 export { default as ImageGallery } from './ImageGallery';
 export { default as News } from './News';
+export { default as AddNews } from './AddNews';
 
 export { default as Category } from './Category';
 export { default as Events } from './Events';

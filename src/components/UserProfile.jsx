@@ -2,13 +2,12 @@ import React from 'react'
 import { MdOutlineCancel } from 'react-icons/md'
 import { BsCheck } from 'react-icons/bs'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
-import { userProfileData } from '../data/constants'
 import { useStateContext } from '../contexts/ContextProvider'
 import { AiOutlineUser, AiOutlineSetting, AiOutlineMail, AiOutlineUnlock } from 'react-icons/ai'
 
 import profile from '../data/profile.jpg'
 const UserProfile = () => {
-   const {setColor, setMode, currentMode, currentColor, userProfile, setUserProfile } = useStateContext();
+   const { setUserProfile } = useStateContext();
 
  return (
     <div className="w-screen fixed nav-item top-16 right-12">
@@ -35,7 +34,6 @@ const UserProfile = () => {
           </div>
         </div>
 
-        {/* Profile Links */}
         <div className="flex-col space-y-4">
           {/* Profile */}
           <div className="flex items-center gap-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 p-3 rounded-lg" onClick={() => {}}>

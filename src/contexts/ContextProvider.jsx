@@ -14,6 +14,7 @@ const [currentColor, setCurrentColor] = useState('#03C9D7');
 const [currentMode, setCurrentMode] = useState('Dark');
 const [themeSettings, setThemeSettings] = useState(false);
 const [userProfile, setUserProfile] = useState(false);
+const [notifications, setNotification] = useState(false);
 
 const setMode = (e) => {
    // Update the current mode state
@@ -25,6 +26,7 @@ const setMode = (e) => {
    // Close the theme settings (optional)
    setThemeSettings(false);
    setUserProfile(false);
+   setNotification(false);
 };
 
 const setColor = (color) =>{
@@ -32,6 +34,7 @@ const setColor = (color) =>{
    localStorage.setItem('colorMode', color);
    setThemeSettings(false);
    setUserProfile(false);
+   setNotification(false);
 }
 
 const handleClick = (clicked) => {
@@ -55,9 +58,9 @@ const handleClick = (clicked) => {
       setMode,
       setColor,
       setUserProfile,
-      userProfile
-
-
+      userProfile,
+       setNotification,
+       notifications,
    }}>
 
 {children}

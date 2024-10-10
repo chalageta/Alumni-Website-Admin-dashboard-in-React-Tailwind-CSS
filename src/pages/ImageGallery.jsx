@@ -6,8 +6,8 @@ const ImageGallery = () => {
   const { currentColor } = useStateContext();
   const [images, setImages] = useState([
     {
-      title: 'Sunset',
-      src: 'https://images.pexels.com/photos/561463/pexels-photo-561463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      title: 'Irreechaa Festival',
+      src: 'https://scontent.fadd1-1.fna.fbcdn.net/v/t39.30808-6/462166810_850079990647971_5239676167936850587_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sL8bx1hK7S4Q7kNvgHkmYDG&_nc_ht=scontent.fadd1-1.fna&_nc_gid=AGyfVjoqemrNqGMs4mPUsT8&oh=00_AYAkN3-gDMKSPrxeIMl_5MQJFViyeGpp3Z0PoGYPWstWrQ&oe=670D34FA',
     },
     {
       title: 'IT Teams',
@@ -25,14 +25,13 @@ const ImageGallery = () => {
       title: 'Family Day',
       src: 'https://images.pexels.com/photos/14612128/pexels-photo-14612128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
-    // Add more images here if needed
+    
   ]);
 
   const [imageTitle, setImageTitle] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [searchTerm, setSearchTerm] = useState(''); // Search term for filtering images
-  const [isDarkMode, setIsDarkMode] = useState(false); // State for dark mode
-  const [currentPage, setCurrentPage] = useState(1); // Current page state
+   const [currentPage, setCurrentPage] = useState(1); // Current page state
   const [imagesPerPage] = useState(3); // Images per page
 
   const handleSubmit = (e) => {
@@ -45,16 +44,10 @@ const ImageGallery = () => {
     setImageFile(null);
   };
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode); // Toggle the dark mode state
-  };
-
-  // Filter images by search term
   const filteredImages = images.filter((image) =>
     image.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination logic
   const indexOfLastImage = currentPage * imagesPerPage;
   const indexOfFirstImage = indexOfLastImage - imagesPerPage;
   const currentImages = filteredImages.slice(indexOfFirstImage, indexOfLastImage);
@@ -67,18 +60,15 @@ const ImageGallery = () => {
     <div className={'min-h-screen p-6 dark:bg-gray-900 dark:text-white bg-gray-100 text-black'}>
       <h1 className="text-3xl font-bold text-center mb-6">ECC Image Gallery</h1>
 
-      {/* Search bar */}
       <div className="mb-8 flex justify-center">
         <input
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search by image title"
-          className="w-full md:w-1/3 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 dark:bg-gray-700 text-white bg-white"
+          className="w-full md:w-1/3 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:text-white bg-white"
         />
       </div>
-
-      {/* Image grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {currentImages.map((image, index) => (
           <div key={index} className='shadow-md rounded-lg overflow-hidden dark:bg-gray-800 bg-white'>
@@ -91,7 +81,7 @@ const ImageGallery = () => {
       </div>
 
 <PagerComponent
-  totalRecordsCount={filteredImages.length} // Pagination based on filtered images
+  totalRecordsCount={filteredImages.length} 
   pageSize={imagesPerPage}
   currentPage={currentPage}
   click={handlePageChange}

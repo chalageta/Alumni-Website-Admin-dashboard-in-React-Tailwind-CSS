@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   GridComponent,
   ColumnsDirective,
@@ -16,34 +17,35 @@ import {
 } from '@syncfusion/ej2-react-grids';
 import { newsData, newsGrid } from '../data/constants';
 import { Header } from '../components';
+import { useStateContext } from '../contexts/ContextProvider';
 import './Users.css'; // Import your CSS file
 
 const News = () => {
-  const gridRef = useRef(null);
+  const {currentColor} = useStateContext();
   const [itemsPerPage, setItemsPerPage] = useState(10); // Default to 10 items per page
-
   const handlePageSizeChange = (e) => {
     setItemsPerPage(parseInt(e.target.value, 10));
   };
 
-  const toolbarClick = (args) => {
-    if (gridRef.current) {
-      if (args.item.id === gridRef.current.element.id + '_pdfexport') {
-        gridRef.current.pdfExport();
-      } else if (args.item.id === gridRef.current.element.id + '_excelexport') {
-        gridRef.current.excelExport();
-      }
-    }
-  };
+
 
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white'>
+    <div className='m-1 md:m-10 p-2 md:p-10  bg-white'>
       <Header title="News" category="Page" />
-
-      {/* Dropdown for items per page */}
-      <div className="mb-4">
-         <select id="pageSize" value={itemsPerPage} onChange={handlePageSizeChange} className="custom-select">
-          <option value="" disabled>per Page</option> {/* Placeholder option */}
+  <div className="flex justify-end mb-2" >
+    <NavLink
+  to="/add_news" >
+        <button 
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" style={{backgroundColor: currentColor}}
+          
+        >
+          Add News
+        </button>
+        </NavLink>
+      </div>
+        <div className="mb-4">
+        <select id="pageSize" value={itemsPerPage} onChange={handlePageSizeChange} className="custom-select">
+          <option value="" disabled>Per Page</option> {/* Placeholder option */}
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={15}>15</option>
@@ -52,18 +54,16 @@ const News = () => {
       </div>
 
       <GridComponent
-        ref={gridRef}
-        width='auto'
+        width="auto"
         dataSource={newsData}
         allowPaging
         allowSorting
         allowExcelExport
         allowPdfExport
-        toolbar={['PdfExport', 'ExcelExport', 'Delete', 'Search']}
+        toolbar={['Delete', 'Search']}
         editSettings={{ allowDeleting: true, allowEditing: true }}
-        toolbarClick={toolbarClick}
-        pageSettings={{ pageSize: itemsPerPage }} // Set the page size here
-      >
+        pageSettings={{ pageSize: itemsPerPage }}
+              >
         <ColumnsDirective>
           {newsGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />

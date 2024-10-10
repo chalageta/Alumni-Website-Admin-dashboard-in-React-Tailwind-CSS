@@ -14,7 +14,7 @@ import {
   Inject,
   ContextMenu
 } from '@syncfusion/ej2-react-grids';
-import { ordersData,contextMenuItems,ordersGrid } from '../data/constants';
+import { eventsData,contextMenuItems,eventsGrid } from '../data/constants';
 import { Header } from '../components';
 import './Users.css'
 
@@ -23,12 +23,12 @@ const Events = () => {
     <div className='md:m-8 m-0 p-2 md:p-8 bg-white rounded-3xl'>
       <Header title="Events" category="Page" />
 
-      <GridComponent id='gridComp' dataSource={ordersData}
+      <GridComponent id='gridComp' dataSource={eventsData}
       allowPaging
       allowSorting
       toolbar={['Search']}>
         <ColumnsDirective>
-        {ordersGrid.map((item,index) =>(
+        {eventsGrid.map((item,index) =>(
           <ColumnDirective key={index} {...item} />
         ))}
         </ColumnsDirective>

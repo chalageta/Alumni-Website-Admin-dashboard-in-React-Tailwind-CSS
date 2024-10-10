@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
-import { Header } from '../components';
 const Add_category = () => {
     const {currentColor} = useStateContext();
   const [categoryName, setCategoryName] = useState('');

@@ -442,8 +442,9 @@ export const newsGrid = [
 
   { headerText: 'News Title',
     width: '150',
-    template: customerGridImage,
-    textAlign: 'Center' },
+    field: 'Name',
+    font:'Bold'
+    },
 
   { field: 'Description',
     headerText: 'Description',
@@ -537,18 +538,15 @@ export const links = [
         name: 'category',
         icon: <AiOutlineShoppingCart />,
       },
-      {
-        name: 'employees',
-        icon: <IoMdContacts />,
-      },
-      {
-        name: 'Users',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'events',
-        icon: <IoIosExpand />,
-      },
+      // {
+      //   name: 'employees',
+      //   icon: <IoMdContacts />,
+      // },
+      // {
+      //   name: 'Users',
+      //   icon: <AiOutlineBarChart />,
+      // },
+      
       {
         name: 'announcements',
         icon: <RiContactsLine />,
@@ -560,6 +558,10 @@ export const links = [
       {
         name: 'imageGallery',
         icon: <RiContactsLine />,
+      },
+      {
+        name: 'events',
+        icon: <IoIosExpand />,
       },
     ],
   },
@@ -574,10 +576,10 @@ export const links = [
       //   name: 'kanban',
       //   icon: <BsKanban />,
       // },
-      {
-        name: 'editor',
-        icon: <FiEdit />,
-      },
+      // {
+      //   name: 'editor',
+      //   icon: <FiEdit />,
+      // },
       // {
       //   name: 'color-picker',
       //   icon: <BiColorFill />,
@@ -936,7 +938,7 @@ export const userProfileData = [
   },
 ];
 
-export const ordersGrid = [
+export const eventsGrid = [
   {
     headerText: 'Event Image',
     template: gridOrderImage,
@@ -1547,7 +1549,7 @@ export const newsData = [
     Description: 'nirav@gmail.com',
     UserImage:
       avatar2,
-    Date: 'Hosting Press HTML',
+    Date: '2024-10-01',
     Action: 'Active',
     
   },
@@ -1557,7 +1559,7 @@ export const newsData = [
     Description: 'nirav@gmail.com',
     UserImage:
       avatar2,
-    Date: 'Hosting Press HTML',
+    Date: '2024-10-01',
     Action: 'Active',
     
   },
@@ -1566,7 +1568,7 @@ export const newsData = [
     Description: 'nirav@gmail.com',
     UserImage:
       avatar2,
-    Date: 'Hosting Press HTML',
+    Date: '2024-10-01',
     Action: 'Active',
     
   },
@@ -1575,7 +1577,7 @@ export const newsData = [
     Description: 'nirav@gmail.com',
     UserImage:
       avatar2,
-    Date: 'Hosting Press HTML',
+    Date: '2024-10-01',
     Action: 'Active',
     
   },
@@ -2223,7 +2225,7 @@ export const employeesData = [
 ];
 
 
-export const ordersData = [
+export const eventsData = [
   {
     OrderID: 'HeadOffice',
     EventName: 'Vinet',

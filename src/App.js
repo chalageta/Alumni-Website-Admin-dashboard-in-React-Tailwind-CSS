@@ -4,7 +4,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 import { Navbar, Footer, ThemeSettings, Sidebar} from './components';
-import { Add_category, ImageGallery, Dashboard,Orders, Events,Editor,Employees,News,Calendar,Kanban,Area,Users,Bar,ColorMapping,Financial,Line,Pie,Pyramid,Stacked} from './pages';
+import { Add_category, ImageGallery, Dashboard,Orders, Events,Editor,Employees,News,AddNews,Calendar,Kanban,Area,Users,Bar,ColorMapping,Financial,Line,Pie,Pyramid,Stacked} from './pages';
 import { useStateContext } from './contexts/ContextProvider';
 import Category from './pages/Category';
 const App = () => {
@@ -50,6 +50,8 @@ const App = () => {
                     <Route path='/users' element={<Users /> }/>
                       <Route path='/category' element={<Category /> }/>
                   <Route path='/news' element={<News /> }/>
+                   <Route path='/add_news' element={<AddNews />} />
+                    
                 
 
                       <Route path='/add_category' element={<Add_category /> }/>
