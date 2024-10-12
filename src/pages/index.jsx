@@ -8,11 +8,11 @@ export { default as News } from './News';
 export { default as AddNews } from './AddNews';
 
 export { default as Category } from './Category';
-export { default as Events } from './Events';
+export { default as Announcements } from './Announcements';
 export { default as Editor } from './Editor';
 export { default as Employees } from './Employees';
 export { default as ColorPicker } from './ColorPicker';
-export { default as Calendar } from './Calendar';
+export { default as Events } from './Events';
 export { default as Area } from './Charts/Area';
 export { default as Bar } from './Charts/Bar';
 

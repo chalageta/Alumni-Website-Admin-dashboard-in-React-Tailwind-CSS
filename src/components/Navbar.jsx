@@ -88,27 +88,32 @@ const NavBar = () => {
           icon={<BsChatLeft />}
         />
         <NavButton
-          title="Notification"
-        
-             customFunc={() =>  setNotification(true)}
-          color={currentColor}
-          dotColor="#03C9D7"
-          icon={<RiNotification3Line />}
-        />
-        <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() =>  setUserProfile(true)
-            }
-          >
-            <img src={profile} className="rounded-full w-7 h-7" alt="" />
-            <p>
-              <span className="text-gray-400 text-14">Hi</span>{' '}
-              <span className="text-gray-400 font-bold ml-1 text-14">Chala</span>
-            </p>
-            <MdKeyboardArrowDown className="text-gray-400 text-14" />
-          </div>
-        </TooltipComponent>
+  title="Notification"
+  customFunc={() => {
+    closeAll();  
+    setNotification(true); 
+  }}
+  color={currentColor}
+  dotColor="#03C9D7"
+  icon={<RiNotification3Line />}
+/>
+
+<TooltipComponent content="Profile" position="BottomCenter">
+  <div
+    className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+    onClick={() => {
+      closeAll();  
+      setUserProfile(true); 
+    }}
+  >
+    <img src={profile} className="rounded-full w-7 h-7" alt="" />
+    <p>
+      <span className="text-gray-400 text-14">Hi</span>{' '}
+      <span className="text-gray-400 font-bold ml-1 text-14">Chala</span>
+    </p>
+    <MdKeyboardArrowDown className="text-gray-400 text-14" />
+  </div>
+</TooltipComponent>
 
         {isClicked.chat && <Chat />}
         {notifications && <Notification />}

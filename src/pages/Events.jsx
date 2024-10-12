@@ -1,41 +1,51 @@
-import React from 'react'
+import React from 'react';
 import {
-  GridComponent,
-  ColumnsDirective,
-  ColumnDirective,
-  Page,
-  ExcelExport,
-  PdfExport,
-  Sort,
-  Filter,
-  Resize,
-  Toolbar,
-  Edit,
+  ScheduleComponent,
+  ViewsDirective,
+  ViewDirective,
+  Day,
+  Week,
+  Agenda,
+  WorkWeek,
+  Month,
   Inject,
-  ContextMenu
-} from '@syncfusion/ej2-react-grids';
-import { eventsData,contextMenuItems,eventsGrid } from '../data/constants';
+  Resize,
+  DragAndDrop,
+} from '@syncfusion/ej2-react-schedule';
+import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
+import { scheduleData } from '../data/constants';
 import { Header } from '../components';
-import './Users.css'
+
+// Custom event template to display images and event details
+const eventTemplate = (props) => {
+  
+  return (
+    <div className="event-template">
+      <img src={props.imageUrl} alt={props.Subject} className="event-image" />
+      <div className="event-details">
+        <h4>{props.Subject}</h4>
+        <p>{props.Description}</p>
+      </div>
+    </div>
+  );
+};
 
 const Events = () => {
   return (
-    <div className='md:m-8 m-0 p-2 md:p-8 bg-white rounded-3xl'>
-      <Header title="Events" category="Page" />
-
-      <GridComponent id='gridComp' dataSource={eventsData}
-      allowPaging
-      allowSorting
-      toolbar={['Search']}>
-        <ColumnsDirective>
-        {eventsGrid.map((item,index) =>(
-          <ColumnDirective key={index} {...item} />
-        ))}
-        </ColumnsDirective>
-        <Inject services={[Resize,ContextMenu,Filter,Page,Sort,ExcelExport,PdfExport,Edit,Toolbar]} />
-      </GridComponent>
+    <div className='m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl'>
+      <Header category="App" title="Events" />
+      <ScheduleComponent
+        height='650px'
+        eventSettings={{
+          dataSource: scheduleData,
+          template: eventTemplate, // Set the custom event template
+        }}
+        selectedDate={new Date(2021, 0, 10)}
+      >
+        <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
+      </ScheduleComponent>
     </div>
-  )
-}
+  );
+};
 
-export default Events
+export default Events;

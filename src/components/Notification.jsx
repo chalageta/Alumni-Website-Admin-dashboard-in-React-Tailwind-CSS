@@ -3,8 +3,15 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../contexts/ContextProvider';
 import { AiOutlineNotification } from 'react-icons/ai';
+import { FaBell } from 'react-icons/fa';
 
-const notificationsData = [
+import { useState } from 'react';
+ 
+
+const Notification = () => {
+
+
+   const [notifications, setNotifications] = useState([ 
   {
     id: 1,
     title: 'New message from John Doe',
@@ -15,7 +22,7 @@ const notificationsData = [
     id: 2,
     title: 'Your profile was updated',
     time: '10 minutes ago',
-    read: true,
+    read: false,
   },
   {
     id: 3,
@@ -27,11 +34,12 @@ const notificationsData = [
     id: 4,
     title: 'Password changed successfully',
     time: '1 hour ago',
-    read: true,
+    read: false,
   },
-];
-
-const Notification = () => {
+]);
+  const handleDismiss = (id) => {
+     setNotifications(notifications.filter(notification => notification.id !== id));
+  };
   const { setNotification } = useStateContext();
 
   return (
@@ -48,17 +56,16 @@ const Notification = () => {
             <MdOutlineCancel />
           </button>
         </div>
-
-        {/* Notification List */}
         <div className="flex-col space-y-4">
-          {notificationsData.map((notification) => (
+          
+          {notifications.map((notification) => (
             <div
               key={notification.id}
               className={`flex items-center gap-4 cursor-pointer p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 ${
                 notification.read ? 'bg-gray-200 dark:bg-gray-600' : ''
               }`}
             >
-              <AiOutlineNotification className={`text-2xl ${notification.read ? 'text-gray-400' : 'text-blue-500'}`} />
+              <FaBell className={`text-2xl ${notification.read ? 'text-gray-400' : 'text-blue-500'}`} />
               <div className="flex-1">
                 <p className={`text-gray-700 dark:text-gray-200 font-medium ${notification.read ? 'line-through' : ''}`}>
                   {notification.title}
@@ -67,14 +74,11 @@ const Notification = () => {
               </div>
               <TooltipComponent content="Dismiss" position="TopCenter">
                 <button
-                  type="button"
-                  className="text-red-500 hover:bg-red-100 rounded-full p-1"
-                  onClick={() => {
-                    // Handle dismiss notification logic here
-                    console.log(`Dismissed notification: ${notification.title}`);
-                  }}
-                >
-                  <MdOutlineCancel />
+              type="button"
+              className="text-red-500 hover:bg-red-100 rounded-full p-1"
+              onClick={() => handleDismiss(notification.id)} 
+            >
+              <MdOutlineCancel />
                 </button>
               </TooltipComponent>
             </div>

@@ -5,11 +5,13 @@ import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft
 import { BiColorFill } from 'react-icons/bi';
 import { IoIosExpand, IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
+import { MdOutlineSupervisorAccount, MdCampaign  } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid, GiNewspaper } from 'react-icons/gi';
 import { GrPhone } from 'react-icons/gr';
+import { FaTags, FaImage, FaNewspaper, FaCalendarAlt, FaHome    } from 'react-icons/fa';
+
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -458,8 +460,8 @@ export const newsGrid = [
     format: 'C2',
     textAlign: 'Center' },
 
-  { field: 'Action',
-    headerText: 'Action',
+  { field: 'Status',
+    headerText: 'Status',
     width: '100',
     format: 'yMd',
     textAlign: 'Center' },
@@ -527,7 +529,7 @@ export const links = [
      links: [
       {
         name: 'dashboard',
-        icon: <FiShoppingBag />,
+        icon: <FaHome  />,
       },
     ],
   },
@@ -536,7 +538,7 @@ export const links = [
     links: [
       {
         name: 'category',
-        icon: <AiOutlineShoppingCart />,
+        icon: <FaTags />,
       },
       // {
       //   name: 'employees',
@@ -549,29 +551,30 @@ export const links = [
       
       {
         name: 'announcements',
-        icon: <RiContactsLine />,
+        icon: <MdCampaign  />,
       },
       {
         name: 'news',
-        icon: <GiNewspaper />,
+        icon: <FaNewspaper  />,
       },
       {
         name: 'imageGallery',
-        icon: <RiContactsLine />,
+        icon: <FaImage  />,
       },
       {
         name: 'events',
-        icon: <IoIosExpand />,
+        icon: <FaCalendarAlt  />,
       },
     ],
   },
-  {
+  
+  // {
    
-    links: [
-      {
-        name: 'calendar',
-        icon: <AiOutlineCalendar />,
-      },
+    // links: [
+    //   {
+    //     name: 'calendar',
+    //     icon: <AiOutlineCalendar />,
+    //   },
       // {
       //   name: 'kanban',
       //   icon: <BsKanban />,
@@ -584,8 +587,8 @@ export const links = [
       //   name: 'color-picker',
       //   icon: <BiColorFill />,
       // },
-    ],
-  },
+  //   ],
+  // },
   // {
   //   title: 'Charts',
   //   links: [
@@ -1545,40 +1548,40 @@ export const customersData = [
 
 export const newsData = [
   {
-    Name: 'Nirav Joshi',
-    Description: 'nirav@gmail.com',
+    Name: 'ታማኝ ግብር ከፋዮች የከፈሉት ግብር ለኢትዮጵያ ብልጽግና መሰረት የሚጥል ነው ፡- ጠቅላይ ሚኒስትር ዐብይ አህመድ(ዶ/ር)',
+    Description: 'ጠቅላይ ሚኒስትሩ ለግብር ከፋዮች ባስተላለፉት መልእክት  የኢትዮጵያ ብልጽግና በዘላቂነት ሊረጋገጥ የሚችለው ከለጋሽ ሀገራት በሚገኝ እርዳታ ሳይሆን  ኢትዮጵያዊያን በሚያደርጉት ርብርብ መሆኑን ገልጸዋል፡፡',
     UserImage:
       avatar2,
-    Date: '2024-10-01',
-    Action: 'Active',
+    Date: '2024-10-11',
+    Status: 'Active',
     
   },
 
    {
-    Name: 'Nirav Joshi',
-    Description: 'nirav@gmail.com',
+    Name: 'የሎጂስቲክስ ዘርፉ አፈጻጸም ኢንዴክስ ከነበረበት 2 ነጥብ 53 ወደ 2 ነጥብ 94 ከፍ ማለቱ ተገለጸ',
+    Description: 'የትራንስፖርት እና ሎጂስቲክስ ሚኒስቴር የሎጂስቲክስ ዘርፉ እድገት እንዲያስመዘግብ  የላቀ ድርሻ ለነበራቸው ተቋማት የእውቅና ሽልማት ሰጥቷል፡፡ በዚህ የእውቅና ሽልማት መርሀግብር የሎጂስቲክስ ዘርፉ የላቀ አፈፃፀም እንዲያስመዘግብ ከፍተኛ  ድርሻ ለነበራቸው የዘርፉ ተዋናዮች እውቅና የተሰጠ ሲሆን የጉምሩክ ኮሚሽንም ለዘርፉ እድገት ላበረከተው ከፍተኛ አስተዋጽኦ እውቅና ተበርክቶለታል፡፡',
     UserImage:
       avatar2,
-    Date: '2024-10-01',
-    Action: 'Active',
+    Date: '2024-08-24',
+    Status: 'Active',
     
   },
    {
-    Name: 'Nirav Joshi',
-    Description: 'nirav@gmail.com',
+    Name: 'በመጭው ሀሙስ 550 የፌደራል ታማኝ ግብር ከፋዮች የእውቅና ሽልማት ይበረከትላቸዋል',
+    Description: '6ኛውን የታማኝ ግብር ከፋዮች የእውቅና ሽልማትን አስመልክቶ የገቢዎች ሚኒስትር ዓይናለም ንጉሴ እና የጉምሩክ ኮሚሽን ኮሚሽነር ደበሌ ቃበታ በዛሬው እለት ለሚዲያ ባለሙያዎች ጋዜጣዊ መግለጫ ሰጥተዋል፡፡ የገቢዎች ሚኒስትር ዓይናለም ንጉሴ፣ በህግ ተገዥነታቸው የላቀ አፈጻጸም ላስመዘገቡ እና ባበረከቱት የገቢ አስተዋጽኦ ግንባር ቀደም ለሆኑ 550 ታማኝ የፌደራል ግብር  ከፋዮች በአንድነት ፓርክ የግብር አዳራሽ የእውቅና ሽልማት እንደሚበረከትላቸው ገልጸዋል፡፡',
     UserImage:
       avatar2,
-    Date: '2024-10-01',
-    Action: 'Active',
+    Date: '2024-09-01',
+    Status: 'Active',
     
   },
    {
-    Name: 'Nirav Joshi',
-    Description: 'nirav@gmail.com',
+    Name: 'የኢትዮጵያ ኢኮኖሚ በአዲስ የታሪክ እጥፋት ላይ ይገኛል-ፕሬዝዳንት ታዬ አጽቀስላሴ ',
+    Description: 'የኢትዮጵያ ኢኮኖሚ በአዲስ የታሪክ እጥፋት ላይ ይገኛል ሲሉ ፕሬዝዳንት ታዬ አፅቀስላሴ ተናገሩ፡፡ 6ኛው የሕዝብ ተወካዮች ምክር ቤትና የፌዴሬሽን ምክር ቤት 4ኛ ዓመት የሥራ ዘመን የመክፈቻ ሥነ-ሥርዓት እየተካሄደ ነው፡፡ የመክፈቻ ንግግር ያደረጉት ፕሬዝዳንት ታዬ አጽቀስላሴ፤ የኢትዮጵያ ኢኮኖሚ በአዲስ የታሪክ እጥፋት ላይ እንደሚገኝ ተናግረዋል፡፡',
     UserImage:
       avatar2,
-    Date: '2024-10-01',
-    Action: 'Active',
+    Date: '2024-10-22',
+    Status: 'Active',
     
   },
   ];

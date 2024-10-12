@@ -17,14 +17,10 @@ const [userProfile, setUserProfile] = useState(false);
 const [notifications, setNotification] = useState(false);
 
 const setMode = (e) => {
-   // Update the current mode state
-   setCurrentMode(e.target.value);
-
-   // Save the mode to localStorage
+    setCurrentMode(e.target.value);
    localStorage.setItem('themeMode', e.target.value);
 
-   // Close the theme settings (optional)
-   setThemeSettings(false);
+    setThemeSettings(false);
    setUserProfile(false);
    setNotification(false);
 };
@@ -59,8 +55,8 @@ const handleClick = (clicked) => {
       setColor,
       setUserProfile,
       userProfile,
-       setNotification,
-       notifications,
+      setNotification,
+      notifications,
    }}>
 
 {children}
