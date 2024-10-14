@@ -14,7 +14,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       type="button"
       onClick={customFunc}
       style={{ color }}
-      className="relative text-4xl rounded-full p-4 transition duration-300 ease-in-out transform hover:bg-gray-200 hover:scale-110 shadow-md"
+      className="relative text-2xl rounded-full p-4 transition duration-300 ease-in-out transform hover:bg-gray-200 hover:scale-110 shadow-md"
     >
       <span
         className="absolute inline-flex rounded-full h-1 w-1 right-1 top-1"
@@ -67,11 +67,11 @@ const NavBar = () => {
     const closeAll = () => {
     setUserProfile(false);
     setNotification(false);
-    setIsClicked({ chat: false }); // Resetting chat state if needed
+    setIsClicked({ chat: false }); 
   };
 
   return (
-    <div className="flex justify-between p-2 md:mx-6 relative border-b-1">
+    <div className="flex justify-between p-2 md:mx-6 relative ">
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
@@ -100,7 +100,7 @@ const NavBar = () => {
 
 <TooltipComponent content="Profile" position="BottomCenter">
   <div
-    className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+    className="flex items-center gap-2 cursor-pointer p-1  rounded-lg"
     onClick={() => {
       closeAll();  
       setUserProfile(true); 

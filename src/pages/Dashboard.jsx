@@ -1,59 +1,65 @@
-import React from 'react'
-import { BsCurrencyDollar } from 'react-icons/bs'
-import { GoPrimitiveDot } from 'react-icons/go';
-import { Stacked,Pie,Button,SparkLine } from '../components';
-import { earningData,SparklineAreaData,ecomPieChartData } from '../data/constants';
-import { useStateContext } from '../contexts/ContextProvider';
-import { IoMdTrain } from 'react-icons/io';
+import React from 'react';
+import { FaNewspaper, FaBullhorn, FaImages, FaUsers } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom'; // Import NavLink
+
 const Dashboard = () => {
-  const {currentColor} = useStateContext();
+  const data = [
+    {
+      title: 'Total News',
+      count: 120,
+      icon: <FaNewspaper className="text-blue-500 text-3xl" />, // Set icon color
+      bgColor: 'bg-blue-500',
+      hoverColor: 'hover:bg-blue-600',
+      path: '/news', // Path for News page
+    },
+    {
+      title: 'Total Announcements',
+      count: 30,
+      icon: <FaBullhorn className="text-green-500 text-3xl" />, // Set icon color
+      bgColor: 'bg-green-500',
+      hoverColor: 'hover:bg-green-600',
+      path: '/announcements', // Path for Announcements page
+    },
+    {
+      title: 'Total Gallery',
+      count: 50,
+      icon: <FaImages className="text-yellow-500 text-3xl" />, // Set icon color
+      bgColor: 'bg-yellow-500',
+      hoverColor: 'hover:bg-yellow-600',
+      path: '/imageGallery', // Path for Gallery page
+    },
+    {
+      title: 'Total Users',
+      count: 200,
+      icon: <FaUsers className="text-purple-500 text-3xl" />, // Set icon color
+      bgColor: 'bg-purple-500',
+      hoverColor: 'hover:bg-purple-600',
+      path: '/users', // Path for Users page (if applicable)
+    },
+  ];
+
   return (
-    <div className='mt-12'>
-      <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 
-        rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center'>
-          <div className='flex justify-between items-center '>
-            <div>
-              <p className='text-gray-400 font-bold'>Capital</p>
-              <p className='text-2xl'>293000 ETB</p>
+    <div className="p-5 dark:bg-gray-900">
+      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {data.map((item, index) => (
+          <NavLink // Use NavLink for navigation
+            key={index}
+            to={item.path} // Set the path for navigation
+            className={`flex items-center p-4 rounded-lg shadow-lg transition-transform transform duration-300 ease-in-out ${item.bgColor} ${item.hoverColor} dark:bg-gray-800 dark:border-gray-700 border border-gray-300 hover:shadow-xl`}
+          >
+            <div className="flex-shrink-0 p-3 bg-white rounded-full shadow-md"> {/* Icon container */}
+              {item.icon}
             </div>
-          </div>
-          <div className='mt-6'>
-            <Button 
-            color="white"
-            bgColor={currentColor}
-            text="Download" 
-            borderRadius= "10px"
-            size='md'/>
-          </div>
-        </div>
-        <div className='flex items-center m-3 flex-wrap gap-1 justify-center'>
-          {earningData.map((item) => (
-            <div key={item.title} className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56
-            p-4 pt-8 rounded-2xl  '>
-              <button type='button' style={{color: item.iconColor, backgroundColor: item.iconBg}}
-               className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'>
-                {item.icon}
-              </button>
-              <p className='mt-4'>
-                <span className='text-lg font-semibold'>
-                  {item.amount}
-                </span>
-                <span className={`text-sm text-${item.pcColor} ml-2`}>
-                  {item.percentage}
-                </span>
-                <p className='text-sm pt-1 text-gray-400'>
-                  {item.title}
-                </p>
-              </p>
-
+            <div className="ml-4">
+              <h2 className="text-lg font-semibold dark:text-white">{item.title}</h2>
+              <p className="text-xl font-bold dark:text-gray-300">{item.count}</p>
             </div>
-          ))}
-
-        </div>
+          </NavLink>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
