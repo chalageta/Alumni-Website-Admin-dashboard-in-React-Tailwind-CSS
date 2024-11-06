@@ -132,7 +132,7 @@ const ImageGallery = () => {
   };
 
   return (
-     <div className={'min-h-screen p-6 dark:bg-gray-900 dark:text-white bg-gray-100 text-black'}>
+    <div className={'min-h-screen p-6 dark:bg-gray-900 dark:text-white bg-gray-100 text-black'}>
       <h1 className="text-3xl font-bold text-center mb-6">ECC Image Gallery</h1>
 
       <div className="mb-8 flex justify-center">
@@ -144,6 +144,7 @@ const ImageGallery = () => {
           className="w-full md:w-1/3 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:text-white bg-white"
         />
       </div>
+
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
         onDrop={handleDrop}
@@ -172,8 +173,8 @@ const ImageGallery = () => {
         ))}
       </div>
 
-        <PagerComponent
-        totalRecordsCount={filteredImages.length} 
+      <PagerComponent
+        totalRecordsCount={filteredImages.length}
         pageSize={imagesPerPage}
         currentPage={currentPage}
         click={handlePageChange}
@@ -193,64 +194,50 @@ const ImageGallery = () => {
           />
         </div>
 
-        <div className="mb-4 flex flex-col items-center justify-center p-6 bg-gray-100 rounded-lg shadow-md"
-             onDrop={handleDrop} 
-             onDragOver={(e) => e.preventDefault()} 
-        >
-          <div
-            className="border-2 border-dashed border-gray-400 rounded-lg p-6 w-full flex flex-col items-center justify-center cursor-pointer"
-            onClick={handleUploadClick}
-          >
-            <MdCloudUpload className="text-4xl text-gray-500 mb-2" />
-            <p className="text-gray-600">Upload Images</p>
-            <p className="text-gray-500">or drop files here</p>
-          </div>
+        <div className="mb-4 flex items-center">
           <input
             type="file"
             id="fileInput"
             accept="image/*"
+            multiple
             onChange={handleFileChange}
-            multiple 
-            className="hidden"
+            className='hidden'
           />
-
-          {uploadedFileNames.length > 0 && (
-            <div className="mt-4 text-gray-700">
-              Uploaded Files: <strong>{uploadedFileNames.join(', ')}</strong>
-            </div>
-          )}
+          <button
+            type="button"
+            onClick={handleUploadClick}
+            className={`flex items-center justify-center px-4 py-2 rounded-md bg-${currentColor}-500 hover:bg-${currentColor}-600 text-white transition duration-150`}
+          >
+            <MdCloudUpload className="mr-2" />
+            Upload Image(s)
+          </button>
+          <span className='ml-2'>{uploadedFileNames.join(', ')}</span>
         </div>
 
         <button
           type="submit"
-          className='w-full text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-blue-700 bg-blue-500'
-          style={{ backgroundColor: currentColor }}
+          className={`flex items-center justify-center px-4 py-2 rounded-md bg-${currentColor}-500 hover:bg-${currentColor}-600 text-white transition duration-150`}
         >
-          Add Images
+          Add Image
         </button>
       </form>
-      {/* Modal for displaying images */}
-  {isModalOpen && (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white p-4 rounded-lg shadow-lg max-w-md relative">
-        <img src={selectedImages[currentImageIndex]} alt="Selected" className="w-full h-64 object-cover mb-4" />
-        <button 
-          onClick={handlePrev} 
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 text-blue-500 hover:text-blue-700"
-        >
-          <FiChevronLeft size={24} />
-        </button>
-        <button 
-          onClick={handleNext} 
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-blue-500 hover:text-blue-700"
-        >
-          <FiChevronRight size={24} />
-        </button>
-        <button onClick={closeModal} className="text-red-500 mt-2">Close</button>
-      </div>
-    </div>
-  )}
 
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="bg-white rounded-lg p-4 relative">
+            <button onClick={closeModal} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700">X</button>
+            <img src={selectedImages[currentImageIndex]} alt="" className="w-full h-96 object-cover" />
+            <div className="flex justify-between mt-4">
+              <button onClick={handlePrev} className="p-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                <FiChevronLeft />
+              </button>
+              <button onClick={handleNext} className="p-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                <FiChevronRight />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

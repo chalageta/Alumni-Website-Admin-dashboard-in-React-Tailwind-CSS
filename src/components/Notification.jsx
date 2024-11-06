@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import Tooltip from '@mui/material/Tooltip';
 import { useStateContext } from '../contexts/ContextProvider';
 import { FaBell, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
@@ -79,7 +79,7 @@ const [notifications, setNotifications] = useState([
                 </p>
                 <p className="text-xs text-gray-400">{notification.time}</p>
               </div>
-              <TooltipComponent content="Dismiss" position="TopCenter">
+              <Tooltip content="Dismiss" position="TopCenter">
                 <button
                   type="button"
                   className="text-red-500 hover:bg-red-100 dark:hover:bg-red-800 rounded-full p-1"
@@ -87,7 +87,7 @@ const [notifications, setNotifications] = useState([
                 >
                   <MdOutlineCancel />
                 </button>
-              </TooltipComponent>
+              </Tooltip>
             </div>
             </NavLink>
           ))}

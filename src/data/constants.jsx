@@ -15,6 +15,8 @@ import { FaTags, FaImage, FaNewspaper, FaCalendarAlt, FaHome    } from 'react-ic
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
+import kontroband from './image.png';
+
 import avatar4 from './avatar4.jpg';
 import product1 from './product1.jpg';
 import product2 from './product2.jpg';
@@ -439,9 +441,7 @@ export const customersGrid = [
 ];
 
 export const newsGrid = [
-  { type: 'checkbox', 
-    width: '50' },
-
+  
   { headerText: 'News Title',
     width: '150',
     field: 'Name',
@@ -1584,6 +1584,15 @@ export const newsData = [
     Status: 'Active',
     
   },
+  {
+    Name: 'በተሽከርካሪ የተለያዩ ክፍሎች ሻግ በመስራት በኮንትሮባንድ ሊገቡ የነበሩ ከ83 ሚሊዮን ብር በላይ የሚገመቱ ስማርት የሞባይል ስልኮች ተያዙ ',
+    Description: 'በጅግጅጋ ጉምሩክ ቅርንጫፍ ፅ/ቤት በኮንትሮባንድ ወደ ሀገር ውስጥ ሊገቡ የነበሩ  83 ነጥብ 4 ሚሊዮን ብር  የሚገመቱ ከ4 ሺህ 100 በላይ ስማርት የሞባይል ስልኮች በቁጥጥር  ስር  ውለዋል፡፡ የኮንትሮባንድ እቃው የተያዘው በተሽከርካሪ ጋቢና ጣራ ውስጥ ሻግ በማሰራት ቦምባስ ጉ/መ/ጣቢያ  ሳይደርስ በጫካ በኩል አድርጎ ለማለፍ ሲሞከር በደረሰ መረጃ እና በተደረገ ክትትል ሲሆን ሁለት ተጠርጣሪዎችም በቁጥጥር ስር ውለዋል፡፡',
+    UserImage:
+      kontroband,
+    Date: '2024-10-22',
+    Status: 'Active',
+    
+  },
   ];
 
 
@@ -2623,7 +2632,6 @@ export const scheduleData = [
     Phone: 'Newyork City',
     StartTime: '2021-01-11T06:30:00.000Z',
     EndTime: '2021-01-11T08:30:00.000Z',
-    imageUrl: 'https://via.placeholder.com/50',
     imageUrl: 'https://via.placeholder.com/50',
     CategoryColor: '#357cd2',
   },

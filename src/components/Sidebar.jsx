@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import Tooltip from '@mui/material/Tooltip';
 import { links } from '../data/constants';
 import { useStateContext } from '../contexts/ContextProvider';
 import logo  from '../data/logo.png';
@@ -27,7 +27,7 @@ const Sidebar = () => {
                         <Link to='/' onClick={handleCloseSideBar} className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight text-slate-900 dark:text-white'>
                              <img src={logo} className='rounded-lg w-12 h-12' alt="" /> <span>ECC Alumni</span>
                         </Link>
-                        <TooltipComponent content='Menu' position='BottomCenter'>
+                        <Tooltip content='Menu' position='BottomCenter'>
                             <button
                                 type='button'
                                 onClick={() => setActiveMenu(prevActiveMenu => !prevActiveMenu)} // Use functional update
@@ -35,12 +35,12 @@ const Sidebar = () => {
                             >
                                 <MdOutlineCancel />
                             </button>
-                        </TooltipComponent>
+                        </Tooltip>
                     </div>
                     <div className='mt-10'>
-                        {links.map((item) => (
-                            <div key={item.title}>
-                                <p className='text-gray-400 m-3 mt-4 uppercase'>{item.title}</p>
+                        {links.map((item, index) => (
+                             <div key={`${item.title}-${index}`}> {/* Unique key for each section */}
+           <p className='text-gray-400 m-3 mt-4 uppercase'>{item.title}</p>
                                 {item.links.map((link) => (
                                     <NavLink
                                         to={`/${link.name}`}

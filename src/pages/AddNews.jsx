@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import { MdCloudUpload } from 'react-icons/md';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Add Quill CSS
 
 const AddNews = () => {
   const [newsTitle, setNewsTitle] = useState('');
@@ -93,14 +95,12 @@ const AddNews = () => {
         <div className="mb-4">
           <label htmlFor="newsDescription" className="block mb-2">News Description</label>
           <div className={`richtext-editor ${currentMode === 'Dark' ? 'e-dark' : ''}`}>
-            <RichTextEditorComponent
-              value={newsDescription}
-              change={(e) => setNewsDescription(e.value)}
-              className="dark:bg-gray-700 dark:text-white border dark:border-gray-600"
-              pasteCleanup={{ allowedTags: null }}
-            >
-              <Inject services={[HtmlEditor, Image, Link, QuickToolbar, Toolbar]} />
-            </RichTextEditorComponent>
+            <ReactQuill
+      value={newsDescription}
+      onChange={setNewsDescription}
+      theme="snow"
+      className="dark:bg-gray-700 dark:text-white border dark:border-gray-600"
+    />
           </div>
         </div>
 
