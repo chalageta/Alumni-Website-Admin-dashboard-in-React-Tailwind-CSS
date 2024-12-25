@@ -8,6 +8,7 @@ import profile from '../data/profile.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 import logo from '../data/logo.png';
+import { ToastContainer } from 'react-toastify';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <Tooltip title={title} placement="bottom">
@@ -74,6 +75,7 @@ const NavBar = () => {
 
   return (
     <div className="relative">
+      <ToastContainer />
       <div className="flex justify-between items-center px-4 py-3 bg-white shadow-md sticky top-0 z-50">
         {/* Left Section: Menu Button */}
         <div className="flex items-center gap-1">
@@ -87,7 +89,7 @@ const NavBar = () => {
 
         {/* Center Section: Navigation Links */}
         <ul className="hidden lg:flex items-center gap-6 ml-2">
-          {['Home', 'Team', 'Feature', 'Blog', 'About'].map((item) => (
+          {['Home', 'Team', 'Membership', 'Blog', 'About'].map((item) => (
             <li key={item}>
               <a
                 href="javascript:void(0)"

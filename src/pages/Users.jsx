@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Header } from '../components';  // Ensure this component exists or remove it
 import { usersData } from '../data/constants';  // Assuming customersData is imported from constants
-import './Users.css';  // Assuming you have a custom CSS file for styling
 
 const Users = () => {
   const [searchTerm, setSearchTerm] = useState('');
