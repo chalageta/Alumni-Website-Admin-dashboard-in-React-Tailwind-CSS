@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from "react-icons/ai";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import LoginHeader from '../components/LoginHeader';
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -31,7 +30,7 @@ const Login = () => {
     };
 
     return (
-      <div><LoginHeader />
+      <div>
        
      
         <div className="font-[sans-serif] bg-white dark:bg-gray-900 flex items-center justify-center md:h-screen p-4">
@@ -103,7 +102,7 @@ const Login = () => {
                                 Sign in
                             </button>
                             <p className="text-gray-800 dark:text-gray-300 text-sm text-center mt-6">
-                                Don't have an account? <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap dark:text-blue-400">Register here</a>
+                                Don't have an account? <a href="/register" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap dark:text-blue-400">Register here</a>
                             </p>
                         </div>
                     </form>

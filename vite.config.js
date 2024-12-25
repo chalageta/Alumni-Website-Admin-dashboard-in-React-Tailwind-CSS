@@ -7,5 +7,12 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
+    resolve: {
+      alias: {
+        'react-quill': 'react-quill/dist/react-quill.esm.js',
+      },
+    },
   },
 });
+
+

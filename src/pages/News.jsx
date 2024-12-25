@@ -8,9 +8,10 @@ import { newsData, newsGrid } from '../data/constants';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { dark } from '@mui/material/styles/createPalette';
 
 const News = () => {
-  const { currentColor } = useStateContext();
+  const { currentColor, darkMode } = useStateContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRows, setSelectedRows] = useState([]);
 
@@ -54,27 +55,31 @@ const News = () => {
 
   // Define columns for DataGrid
   const columns = [
-    { field: 'Name', headerName: 'News Title', flex: 1, width: 200, sortable: true, },
-    { field: 'Description', headerName: 'Description', width: 250, sortable: true, flex: 2 },
-    { field: 'Date', headerName: 'Date', width: 150, sortable: true },
-    { field: 'Status', headerName: 'Status', width: 150, sortable: true },
+    { field: 'Name', headerName: 'News Title', flex: 1, width: 200, sortable: true,headerClassName: 'dark:bg-gray-700 dark:text-white bg-gray-200 text-black' },
+    { field: 'Description', headerName: 'Description', width: 250, sortable: true, flex: 2, headerClassName: 'dark:bg-gray-700 dark:text-white bg-gray-200 text-black' },
+    { field: 'Date', headerName: 'Date', width: 150, sortable: true,headerClassName: 'dark:bg-gray-700 dark:text-white bg-gray-200 text-black' },
+    { field: 'Status', headerName: 'Status', width: 150, sortable: true, headerClassName: 'dark:bg-gray-700 dark:text-white bg-gray-200 text-black' }
   ];
 
   return (
-    <div className="m-4 p-4">
+    <div
+      className='m-4 p-4 dark:bg-gray-800 dark:text-white bg-white text-black
+      rounded-md shadow-md'
+    >
       <Header category="Page" title="News" />
-      
-      {/* Search and Action Buttons */}
-     
 
-      {/* News DataGrid */}
-      <div style={{ width: '99%' }} >
-         <div className="flex flex-col md:flex-row justify-between items-center mb-4 space-y-4 md:space-y-0">
+      {/* Search and Action Buttons */}
+      <div className="flex flex-col md:flex-row justify-between items-center mb-4 space-y-4 md:space-y-0">
         <TextField
           label="Search News"
           variant="outlined"
           margin="normal"
-          className="w-full md:w-1/3"
+          className='w-full md:w-1/3 dark:bg-gray-700 dark:text-white bg-white'
+          InputProps={{
+            style: {
+              color:'dark:white black',
+            },
+          }}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
@@ -101,12 +106,16 @@ const News = () => {
           </button>
         </div>
       </div>
+
+      {/* News DataGrid */}
+      <div style={{ width: '99%' }}>
         <DataGrid
           rows={filteredNewsData.map((news, index) => ({ id: index, ...news }))}
           columns={columns}
           pageSize={10}
           checkboxSelection
           onSelectionModelChange={handleSelection}
+          className='dark:bg-gray-900 dark:text-white bg-white text-black'
         />
       </div>
     </div>

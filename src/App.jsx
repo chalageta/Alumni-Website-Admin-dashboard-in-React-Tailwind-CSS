@@ -8,16 +8,20 @@ import { Add_category, ImageGallery, Events, Dashboard, Orders, Announcements, E
 import { useStateContext } from './contexts/ContextProvider';
 import Category from './pages/Category';
 import Login from './pages/Login';
+import Register from './pages/Register';
+
 const App = () => {
-  const {activeMenu, themeSettings, setThemeSettings, currentColor, currentMode} = useStateContext();
-   return (
-    <div className={currentMode === 'Dark' ? 'dark' : ''}>
-      <div className='flex relative dark:bg-main-dark-bg'>
-        <div className='fixed right-4 bottom-4' style={{ zIndex: "1000" }}>
-          <Tooltip content="Settings" position='Top'>
+  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
+
+  return (
+    <div className={currentMode === 'Light' ? 'light' : ''}>
+      <div className="flex relative dark:bg-main-dark-bg">
+        {/* Settings Button */}
+        <div className="fixed right-4 bottom-4" style={{ zIndex: 1000 }}>
+          <Tooltip content="Settings" position="Top">
             <button
-              type='button'
-              className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white'
+              type="button"
+              className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
               onClick={() => setThemeSettings(true)}
               style={{ background: currentColor, borderRadius: '50%' }}
             >
@@ -25,27 +29,33 @@ const App = () => {
             </button>
           </Tooltip>
         </div>
+
+        {/* Sidebar */}
         {activeMenu ? (
-          <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
+          <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
             <Sidebar />
           </div>
         ) : (
-          <div className='w-0 dark:bg-secondary-dark-bg'>
+          <div className="w-0 dark:bg-secondary-dark-bg">
             <Sidebar />
           </div>
         )}
+
+        {/* Main Content */}
         <div className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
-          {window.location.pathname !== '/' && (
-            <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+        
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar />
             </div>
-          )}
-          <div>
-            {themeSettings && <ThemeSettings />}
+         
+          {themeSettings && <ThemeSettings />}
+
+       
             <Routes>
-              {/* Define your routes here */}
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/' element={<Login />} />
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            
               <Route path='/orders' element={<Orders />} />
               <Route path='/announcements' element={<Announcements />} />
               <Route path='/employees' element={<Employees />} />
@@ -69,11 +79,12 @@ const App = () => {
               <Route path='/Pyramid' element={<Pyramid />} />
               <Route path='/Stacked' element={<Stacked />} />
             </Routes>
+            <Footer />
           </div>
+          
         </div>
       </div>
-    </div>
   );
-}
+};
 
 export default App;

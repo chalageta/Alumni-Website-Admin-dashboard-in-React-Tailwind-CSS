@@ -1,49 +1,48 @@
-import React, { useState, useRef } from 'react';
-import {
-  GridComponent,
-  ColumnsDirective,
-  ColumnDirective,
-  Page,
-  Search,
-  Edit,
-  Toolbar,
-  Inject,
-  Selection,
-  PdfExport,
-  ExcelExport,
-  Sort,
-  Filter
-} from '@syncfusion/ej2-react-grids';
-import { customersData, customersGrid } from '../data/constants';
-import { Header } from '../components';
-import './Users.css'; // Import your CSS file
+import React, { useState, useMemo } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { Header } from '../components';  // Ensure this component exists or remove it
+import { usersData } from '../data/constants';  // Assuming customersData is imported from constants
+import './Users.css';  // Assuming you have a custom CSS file for styling
 
 const Users = () => {
-  const gridRef = useRef(null);
-  const [itemsPerPage, setItemsPerPage] = useState(10); // Default to 10 items per page
+  const [searchTerm, setSearchTerm] = useState('');
+  const [pageSize, setPageSize] = useState(10);  // Default page size
 
-  const handlePageSizeChange = (e) => {
-    setItemsPerPage(parseInt(e.target.value, 10));
-  };
+  // Filter customersData based on search term
+  const filteredData = useMemo(() => {
+    return usersData.filter((user) =>
+      user.Name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
 
-  const toolbarClick = (args) => {
-    if (gridRef.current) {
-      if (args.item.id === gridRef.current.element.id + '_pdfexport') {
-        gridRef.current.pdfExport();
-      } else if (args.item.id === gridRef.current.element.id + '_excelexport') {
-        gridRef.current.excelExport();
-      }
-    }
-  };
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'Name', headerName: 'Name', width: 150 },
+    { field: 'Email', headerName: 'Email', width: 200 },
+    { field: 'Contact', headerName: 'Phone', width: 150 },
+    { field: 'Address', headerName: 'Address', width: 200 },
+  ];
 
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white'>
-      <Header title="Users" category="Page" />
+    <div className="m-4 p-4 bg-white">
+      <Header title="Users" category="Page" /> {/* Ensure this component exists or remove it */}
 
-      {/* Dropdown for items per page */}
-      <div className="mb-4">
-         <select id="pageSize" value={itemsPerPage} onChange={handlePageSizeChange} className="custom-select">
-          <option value="" disabled>per Page</option> {/* Placeholder option */}
+      {/* Search Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+        <input
+          type="text"
+          placeholder="Search Users"
+          className="border p-2 rounded-md w-full md:w-1/3"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        {/* Dropdown for page size */}
+        <select
+          className="border p-2 rounded-md mt-2 md:mt-0"
+          value={pageSize}
+          onChange={(e) => setPageSize(parseInt(e.target.value, 10))}
+        >
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={15}>15</option>
@@ -51,26 +50,17 @@ const Users = () => {
         </select>
       </div>
 
-      <GridComponent
-        ref={gridRef}
-        width='auto'
-        dataSource={customersData}
-        allowPaging
-        allowSorting
-        allowExcelExport
-        allowPdfExport
-        toolbar={['PdfExport', 'ExcelExport', 'Delete', 'Search']}
-        editSettings={{ allowDeleting: true, allowEditing: true }}
-        toolbarClick={toolbarClick}
-        pageSettings={{ pageSize: itemsPerPage }} // Set the page size here
-      >
-        <ColumnsDirective>
-          {customersGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
-        </ColumnsDirective>
-        <Inject services={[Page, Toolbar, Search, Edit, Selection, Sort, Filter, PdfExport, ExcelExport]} />
-      </GridComponent>
+      {/* DataGrid */}
+      <div style={{ height: 400, width: '100%' }}>
+        <DataGrid
+          rows={filteredData}
+          columns={columns}
+          pageSize={pageSize}
+          rowsPerPageOptions={[5, 10, 15, 20]}
+          checkboxSelection
+          disableSelectionOnClick
+        />
+      </div>
     </div>
   );
 };
