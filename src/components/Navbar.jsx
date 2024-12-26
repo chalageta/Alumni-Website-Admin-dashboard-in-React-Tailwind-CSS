@@ -9,6 +9,7 @@ import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 import logo from '../data/logo.png';
 import { ToastContainer } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <Tooltip title={title} placement="bottom">
@@ -87,22 +88,39 @@ const NavBar = () => {
           />
         </div>
 
-        {/* Center Section: Navigation Links */}
         <ul className="hidden lg:flex items-center gap-6 ml-2">
-          {['Home', 'Team', 'Membership', 'Blog', 'About'].map((item) => (
-            <li key={item}>
-              <a
-                href="/membership"
-                className="text-gray-600 hover:text-blue-600 font-semibold transition-all"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Right Section: Buttons and Profile */}
-        <div className="flex items-center gap-4 ml-auto">
+  {[
+    { name: 'Home', href: '/' },
+    { name: 'Team', href: '/team' },
+    { name: 'Membership', href: '/membership' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'About', href: '/about' },
+  ].map((item) => (
+    <li key={item.name}>
+      <a
+        href={item.href}
+        className="text-gray-600 hover:text-blue-600 font-semibold transition-all"
+      >
+        {item.name}
+      </a>
+    </li>
+  ))}
+  
+</ul>
+<div class='flex ml-auto'>
+          <Link to="/login" class='mr-6 font-semibold border-none outline-none text-blue-600 px-5 py-2.5'>Login</Link>
+          <Link to="/register" class='bg-blue-600 hover:bg-blue-700 transition-all text-white rounded-full px-5 py-2.5'>Sign
+            up</Link>
+          <button id="toggleOpen" class='lg:hidden ml-7'>
+            <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+{/* 
+         <div className="flex items-center gap-4 ml-auto">
           <NavButton
             title="Chat"
             customFunc={() => handleClick('chat')}
@@ -136,11 +154,10 @@ const NavBar = () => {
               <MdKeyboardArrowDown className="text-gray-400" />
             </div>
           </Tooltip>
-        </div>
+        </div> */}
       </div>
 
-      {/* Modals: Chat, Notification, User Profile */}
-      {isClicked.chat && (
+       {isClicked.chat && (
         <div className="z-60">
           <Chat />
         </div>

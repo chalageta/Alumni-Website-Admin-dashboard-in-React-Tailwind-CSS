@@ -326,11 +326,24 @@ const Dashboard = () => {
           )}
         </div>
       ))}
+      
     </div>
+    
     </div>
 
 
   </div>
+
+      <div class="bg-gradient-to-r from-blue-700 to-[#B06AB3] font-sans px-6 py-12">
+      <div class="container mx-auto flex flex-col justify-center items-center text-center">
+        <h2 class="text-white sm:text-4xl text-3xl font-bold mb-4">Join Our Community! </h2>
+        <p class="text-white text-base text-center mb-8">Welcome to our ECC Alumni community—where opportunities and meaningful connections thrive.</p>
+
+        <Link to="/register"  class="bg-white text-sm text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-slate-100">
+        Join Our Community
+        </Link>
+      </div>
+    </div>
 </div>
  
 
