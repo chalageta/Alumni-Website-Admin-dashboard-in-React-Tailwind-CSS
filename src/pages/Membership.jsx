@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useStateContext } from '../contexts/ContextProvider'
 
 const Membership = () => {
+  const {currentColor} = useStateContext();
   return (
     <div>
     <div class="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
@@ -10,18 +12,21 @@ const Membership = () => {
       <div class="min-h-[300px] relative z-50 h-full max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
         <h2 class="sm:text-4xl text-2xl font-bold mb-6">ECC Alumni Membership </h2>
         <p class="sm:text-lg text-base text-center text-gray-200">Welcome to our ECC Alumni community—where opportunities and meaningful connections thrive.</p>
-            <Link
-          to="/register"
-          class="mt-12 bg-transparent text-white text-base py-3 px-6 border border-white rounded-lg hover:bg-white hover:text-black transition duration-300">
-          Join Our Community
-        </Link>
+        <Link
+      to="/register"
+      style={{ '--hover-bg': currentColor }}
+      className="mt-12 bg-transparent text-white text-base py-3 px-6 border border-white rounded-lg hover:bg-[var(--hover-bg)] hover:text-white transition duration-300"
+    >
+      Join Our Community
+    </Link>
+
       </div>
     </div>
       <div className="bg-gray-100 px-6 py-12 font-sans">
       <div className="lg:max-w-7xl max-w-lg mx-auto px-6 py-8 bg-white rounded-lg shadow-md">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="max-h-80">
-            <img src="https://readymadeui.com/management-img.webp" alt="Image" className="rounded-md object-cover w-full h-full" />
+            <img src="https://z-p3-scontent.fadd1-1.fna.fbcdn.net/v/t39.30808-6/470477803_906871471635489_4789835088486751064_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHPcoCKF7-KWryrRtmj70VjsKhWDbNPrSawqFYNs0-tJrmRW0j3Xwisg5nV8hTElgDg4T1i8ua361VEWhZ1123M&_nc_ohc=G7v-PiSa1AoQ7kNvgHB9xcu&_nc_zt=23&_nc_ht=z-p3-scontent.fadd1-1.fna&_nc_gid=AgUESt-Q_aiAheQlPwsSmUj&oh=00_AYAAK5pIZyA6WfcmIjyX3BaHhFuLGYEUQz-A6fzO59IIjg&oe=6772D4DB" alt="Image" className="rounded-md object-cover w-full h-full" />
           </div>
           <div>
             <h2 className="text-3xl font-extrabold text-purple-700 mb-4">Welcome to the ECC Alumni membership page!</h2>
