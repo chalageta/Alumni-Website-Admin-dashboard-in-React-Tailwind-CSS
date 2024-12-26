@@ -49,13 +49,13 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="max-md:mt-12 h-full relative">
-  <img src="https://readymadeui.com/team-image.webp" alt="banner img" className="w-full h-full object-cover" />
+  <img src="https://z-p3-scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/469995785_897010042621632_4316432272141485109_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHPiGEGQudLRHs1gFfXe_pfaNFQe9rfpDRo0VB72t-kNInbPZ8_Mkq8s1YylLMO_4MdlK4byKVixgAOD32Yltqr&_nc_ohc=EYGVzDsdq1wQ7kNvgHENqji&_nc_zt=23&_nc_ht=z-p3-scontent.fadd2-1.fna&_nc_gid=AjbAbc07-8QnxneiCcldyVE&oh=00_AYCnTetyO9zG-vkfl2FtVvAvCPFZWX92pACjpaDsoSGC1A&oe=6771EFF5" alt="banner img" className="w-full h-full object-cover" />
   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-30">
     <h1 className="text-4xl md:text-5xl font-bold mb-4">
       Welcome to ECC Alumni, Ethiopia
     </h1>
     <Link  style={{ backgroundColor: currentColor }}
-  to={"/register"} className="px-6 py-3 mt-4 text-lg font-semibold  hover:bg-blue-700 rounded-lg shadow-lg">
+  to={"/membership"} className="px-6 py-3 mt-4 text-lg font-semibold  hover:bg-blue-700 rounded-lg shadow-lg">
       Join Community
     </Link>
   </div>
@@ -165,61 +165,40 @@ const Dashboard = () => {
         </div>
       </div> */}
 
-      <div className="mt-10 bg-gray-50 px-4 sm:px-10 py-12">
-        <div className="max-w-7xl max-md:max-w-lg mx-auto">
-          <h2 className="md:text-4xl text-3xl font-bold md:text-center mb-14">Our Latest Blogs</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
-            <div className="bg-white cursor-pointer rounded-md overflow-hidden group">
-              <div className="relative overflow-hidden">
-                <img src="https://readymadeui.com/Imagination.webp" alt="Blog Post 1"
-                  className="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                <div  style={{ backgroundColor: currentColor }}
-  className="px-4 py-2.5 text-white  absolute bottom-0 right-0">June 10, 2023</div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">A Guide to Igniting Your Imagination</h3>
-                <button type="button"
-                 style={{ backgroundColor: currentColor }}
- 
-                  className=" hover:bg-blue-700 text-white rounded-full px-5 py-2.5 mt-6 transition-all">Read
-                  More</button>
-              </div>
-            </div>
-            <div className="bg-white cursor-pointer rounded-md overflow-hidden group">
-              <div className="relative overflow-hidden">
-                <img src="https://readymadeui.com/hacks-watch.webp" alt="Blog Post 2"
-                  className="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                <div  style={{ backgroundColor: currentColor }}
-  className="px-4 py-2.5 text-white absolute bottom-0 right-0">April 20, 2023</div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">Hacks to Supercharge Your Day</h3>
-                <button type="button"
-                 style={{ backgroundColor: currentColor }}
- 
-                  className=" hover:bg-blue-700 text-white rounded-full px-5 py-2.5 mt-6 transition-all">Read
-                  More</button>
-              </div>
-            </div>
-            <div className="bg-white cursor-pointer rounded-md overflow-hidden group">
-              <div className="relative overflow-hidden">
-                <img src="https://readymadeui.com/prediction.webp" alt="Blog Post 3"
-                  className="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                <div  style={{ backgroundColor: currentColor }}
-  className="px-4 py-2.5 text-white  absolute bottom-0 right-0">August 16, 2023</div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">Trends and Predictions</h3>
-                <button type="button"
-                 style={{ backgroundColor: currentColor }}
- 
-                  className=" hover:bg-blue-700 text-white rounded-full px-5 py-2.5 mt-6 transition-all">Read
-                  More</button>
-              </div>
-            </div>
-          </div>
+      <div className="mt-3 bg-white px-4 sm:px-10 py-12">
+       <div class="max-w-6xl mx-auto">
+    <div class="text-center">
+      <h2 class="text-3xl font-extrabold text-gray-800 inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-pink-400 after:rounded-full">ECC Alumni News</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16 max-lg:max-w-3xl max-md:max-w-md mx-auto">
+  
+      <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
+      <img src="https://readymadeui.com/Imagination.webp" alt="Blog Post 1" class="w-full h-60 object-cover" />   <div class="p-6">
+          <span class="text-sm block text-gray-400 mb-2">20 DEC 2023 | BY Chala Geta</span>
+          <h3 class="text-xl font-bold text-gray-800">Celebrating ECC Alumni Achievements</h3>
+          <hr class="my-4" />
+          <p class="text-gray-400 text-sm">We take a moment to recognize the exceptional contributions of our alumni to various industries. Their achievements continue to inspire future graduates.</p>
         </div>
       </div>
+      <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
+      <img src="https://readymadeui.com/hacks-watch.webp" alt="Blog Post 2" class="w-full h-60 object-cover" /><div class="p-6">
+          <span class="text-sm block text-gray-400 mb-2">15 DEC 2023 | BY Elias</span>
+          <h3 class="text-xl font-bold text-gray-800">The Impact of ECC Alumni on Local Communities</h3>
+          <hr class="my-4" />
+          <p class="text-gray-400 text-sm">Our alumni are not only excelling in their careers but are also making a profound impact on the communities they serve. Discover how they are giving back.</p>
+        </div>
+      </div>
+      <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
+      <img src="https://readymadeui.com/prediction.webp" alt="Blog Post 3" class="w-full h-60 object-cover" />   <div class="p-6">
+          <span class="text-sm block text-gray-400 mb-2">10 DEC 2024 | BY Bona</span>
+          <h3 class="text-xl font-bold text-gray-800">ECC Alumni Networking Event Recap</h3>
+          <hr class="my-4" />
+          <p class="text-gray-400 text-sm">The annual ECC Alumni networking event brought together ECC Employees from all over the world. Check out highlights and key takeaways from the event.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* <div className="mt-28">
         <div className="grid md:grid-cols-2 justify-center items-center gap-10">

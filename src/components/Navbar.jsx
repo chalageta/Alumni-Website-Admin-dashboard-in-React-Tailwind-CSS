@@ -92,7 +92,7 @@ const NavBar = () => {
           {['Home', 'Team', 'Membership', 'Blog', 'About'].map((item) => (
             <li key={item}>
               <a
-                href="javascript:void(0)"
+                href="/membership"
                 className="text-gray-600 hover:text-blue-600 font-semibold transition-all"
               >
                 {item}

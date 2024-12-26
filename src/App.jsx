@@ -9,6 +9,7 @@ import { useStateContext } from './contexts/ContextProvider';
 import Category from './pages/Category';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Membership from './pages/Membership';
 
 const App = () => {
   const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
@@ -56,7 +57,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             
-              <Route path='/orders' element={<Orders />} />
+              <Route path='/membership' element={<Membership />} />
               <Route path='/announcements' element={<Announcements />} />
               <Route path='/employees' element={<Employees />} />
               <Route path='/users' element={<Users />} />
