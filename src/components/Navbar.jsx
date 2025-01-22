@@ -91,7 +91,6 @@ const NavBar = () => {
         <ul className="hidden lg:flex items-center gap-6 ml-2">
   {[
     { name: 'Home', href: '/' },
-    { name: 'Team', href: '/team' },
     { name: 'Membership', href: '/membership' },
     { name: 'Contact', href: '/contact' },
     { name: 'About', href: '/about' },

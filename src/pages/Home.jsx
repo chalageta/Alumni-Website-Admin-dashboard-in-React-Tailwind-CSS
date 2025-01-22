@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
-const Dashboard = () => {
+import News from '../components/News';
+const Home = () => {
   const [activeQuestion, setActiveQuestion] = useState(null);
 
   const toggleQuestion = (index) => {
@@ -10,12 +11,10 @@ const Dashboard = () => {
   };
   const {currentColor}  = useStateContext();
   return (
-   <div className="max-w-[1920px] mx-auto">
-  <div className="bg-white text-black text-[15px]">
-
-
+   <div className="max-w-[1920px] mx-auto dark:bg-gray-600">
+  <div className="dark:text-gray-50 text-black text-[15px]">
     <div className="px-4 sm:px-10">
-      <div className="min-h-[500px]">
+      <div className="min-h-[450px]">
         <div className="grid md:grid-cols-2 justify-center items-center gap-10">
           <div className="max-md:order-1">
             <p className="mt-4 mb-2 font-semibold text-blue-600"><span className="rotate-90 inline-block mr-2">|</span>  Welcome To ECC Alumni </p>
@@ -41,15 +40,15 @@ const Dashboard = () => {
 
             </div>
       
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+            {/* <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
               <img src="https://readymadeui.com/google-logo.svg" className="w-28 mx-auto" alt="google-logo" />
               <img src="https://readymadeui.com/facebook-logo.svg" className="w-28 mx-auto" alt="facebook-logo" />
               <img src="https://readymadeui.com/linkedin-logo.svg" className="w-28 mx-auto" alt="linkedin-logo" />
               <img src="https://readymadeui.com/pinterest-logo.svg" className="w-28 mx-auto" alt="pinterest-logo" />
-            </div>
+            </div> */}
           </div>
           <div className="max-md:mt-12 h-full relative">
-  <img src="https://z-p3-scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/469995785_897010042621632_4316432272141485109_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHPiGEGQudLRHs1gFfXe_pfaNFQe9rfpDRo0VB72t-kNInbPZ8_Mkq8s1YylLMO_4MdlK4byKVixgAOD32Yltqr&_nc_ohc=EYGVzDsdq1wQ7kNvgHENqji&_nc_zt=23&_nc_ht=z-p3-scontent.fadd2-1.fna&_nc_gid=AjbAbc07-8QnxneiCcldyVE&oh=00_AYCnTetyO9zG-vkfl2FtVvAvCPFZWX92pACjpaDsoSGC1A&oe=6771EFF5" alt="banner img" className="w-full h-full object-cover" />
+  <img src="ecc_team.jpg" alt="banner img" className="w-full h-full object-cover" />
   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-30">
     <h1 className="text-4xl md:text-5xl font-bold mb-4">
       Welcome to ECC Alumni, Ethiopia
@@ -64,7 +63,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="mt-3 bg-gray-50 px-4 sm:px-10 py-12">
+      <div className=" dark:text-gray-50 px-4 sm:px-10 py-4">
         <div className="max-w-7xl mx-auto">
           <div className="md:text-center max-w-2xl mx-auto">
             <h2 className="md:text-4xl text-3xl font-bold mb-6">Our Purpose of Alumni Association </h2>
@@ -123,18 +122,18 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-4 ">
         <div className="mt-2">
           <div className="grid md:grid-cols-2 items-center gap-16">
             <div>
-              <img src="https://z-p3-scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/469290549_891905113132125_8574415192723117289_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHS9EErUmgHDTRq0jUP2qSJROJJKsvvykBE4kkqy-_KQCT3uM5lFj3kJWlvjT-vyt-3lLInG6HesRujsW5UvUDH&_nc_ohc=xirtbQYNUikQ7kNvgFAhSWC&_nc_zt=23&_nc_ht=z-p3-scontent.fadd2-1.fna&_nc_gid=Ap6C4RnwiaQeUhmflKx5Hjx&oh=00_AYDv39TWg1Zfb5dlhnqLcgjRb7Jxqn1jlIyMtfhM8SQgSg&oe=6772EAAB"
+              <img src="mission-vission.jpg"
                 className="w-full object-contain rounded-md shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]" />
             </div>
             <div className="max-w-lg">
               <h3 className="text-xl font-semibold mb-4">Our Vision and Mission.</h3>
-              <p className="text-base text-gray-600 dark:text-gray-300 mb-2">
+              <p className="text-base  dark:text-gray-300 mb-2">
                 <strong>Vision:</strong> To be a dynamic network of ECC alumni in Ethiopia, fostering a community of lifelong connections, professional growth, and impactful contributions to society.</p>
-                    <p className="text-base text-gray-600 dark:text-gray-300">
+                    <p className="text-base text-gray-900 dark:text-gray-300">
                       <strong>Mission:</strong> To support ECC alumni by creating opportunities for collaboration, knowledge-sharing, and career development, while promoting the values and vision of ECC to contribute to national and global progress.
                     </p>  <button type="button"
                                 style={{ backgroundColor: currentColor }}
@@ -162,45 +161,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="mt-10 bg-gray-50 px-4 sm:px-10 py-12">
-       <div class="max-w-full mx-auto">
-    <div class="text-center">
-      <h2 class="text-3xl font-extrabold text-gray-800 inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-pink-400 after:rounded-full">Our Latest
-      News</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16 max-lg:max-w-3xl max-md:max-w-md mx-auto">
-  
-      <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-      <img src="https://z-p3-scontent.fadd1-1.fna.fbcdn.net/v/t39.30808-6/469966199_897010015954968_7102297383283292444_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFYLzsGCCHJvj-1z1_S4lkGJz9jRZuc1eMnP2NFm5zV46n7mz5fob-JoMsf5_mS3KHYKCa8loALyQkHT6McWOxM&_nc_ohc=MssrAT-t2Q8Q7kNvgFiQZcD&_nc_zt=23&_nc_ht=z-p3-scontent.fadd1-1.fna&_nc_gid=AITKdueuOuDrJE6X0a2bHv-&oh=00_AYD1dVs14zYpQdePCJ75T8FBbZhZMMbehSx0ESUcqmujAA&oe=6772BF25" alt="Blog Post 1" class="w-full h-60 object-cover" />   <div class="p-6">
-          <span class="text-sm block text-gray-400 mb-2">20 DEC 2023 | BY Chala Geta</span>
-          <h3 class="text-xl font-bold text-gray-800">Celebrating ECC Alumni Achievements</h3>
-          <hr class="my-4" />
-          <p class="text-gray-400 text-sm">We take a moment to recognize the exceptional contributions of our alumni to various industries. Their achievements continue to inspire future graduates.</p>
-          <a style={{backgroundColor: currentColor}} href="javascript:void(0);" class="mt-4 inline-block px-4 py-2 rounded tracking-wider  hover:bg-orange-600 text-white text-[13px]">Read More</a>
-          </div>
-      </div>
-      <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-      <img src="https://z-p3-scontent.fadd1-1.fna.fbcdn.net/v/t39.30808-6/470689448_901360688853234_3824534807381937169_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHkJC1YTlMlPNnvWCmzHqKD-WYt9FomTV_5Zi30WiZNX2tf1LiFkSQXNWH8N8yWpT4yS3eLOgs6fPEhV1V7NUrZ&_nc_ohc=8x85gXuya2gQ7kNvgH9H84J&_nc_zt=23&_nc_ht=z-p3-scontent.fadd1-1.fna&_nc_gid=An-T9mYnEeO9e6jhsf5mTOj&oh=00_AYAPcgSwqOUF4IU4KKnDpsJ_BU5ph8eZSudJvIJPyiON4w&oe=6772C5D8" alt="Blog Post 2" class="w-full h-60 object-cover" /><div class="p-6">
-          <span class="text-sm block text-gray-400 mb-2">15 DEC 2023 | BY Elias</span>
-          <h3 class="text-xl font-bold text-gray-800">The Impact of ECC Alumni on Local Communities</h3>
-          <hr class="my-4" />
-          <p class="text-gray-400 text-sm">Our alumni are not only excelling in their careers but are also making a profound impact on the communities they serve. Discover how they are giving back.</p>
-          <a href="javascript:void(0);" style={{backgroundColor: currentColor}} class="mt-4 inline-block px-4 py-2 rounded tracking-wider  hover:bg-orange-600 text-white text-[13px]">Read More</a>
-          </div>
-      </div>
-      <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
-        <img src="https://z-p3-scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/469880836_896448409344462_9032884606880343751_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEUW-EkANNN0EkjBuIQtStZ2PCKMBX27qPY8IowFfbuo1WOPa5gOcJa5iEGc8oBSEubMvPb9oPgsUygyG2tYyZo&_nc_ohc=ARQMrSnUsM8Q7kNvgFLjr2n&_nc_zt=23&_nc_ht=z-p3-scontent.fadd2-1.fna&_nc_gid=AWGUb4QardpyP0YJq7Ki6Fy&oh=00_AYBGmGo6wSr85d3ziDkc8Q4VdbkA9UAJah4qjXstXp7N2g&oe=6772C0B4" alt="Blog Post 3" class="w-full h-60 object-cover" />   <div class="p-6">
-          <span class="text-sm block text-gray-400 mb-2">10 DEC 2024 | BY Bona</span>
-          <h3 class="text-xl font-bold text-gray-800">ECC Alumni Networking Event Recap</h3>
-          <hr class="my-4" />
-          <p class="text-gray-400 text-sm">The annual ECC Alumni networking event brought together ECC Employees from all over the world. Check out highlights and key takeaways from the event.</p>
-          <a href="javascript:void(0);" style={{backgroundColor: currentColor}} class="mt-4 inline-block px-4 py-2 rounded tracking-wider  hover:bg-orange-600 text-white text-[13px]">Read More</a>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+    <News />
       {/* <div className="mt-28">
         <div className="grid md:grid-cols-2 justify-center items-center gap-10">
           <div>
@@ -350,4 +311,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;

@@ -10,7 +10,7 @@ import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid, GiNewspaper } from 'react-icons/gi';
 import { GrPhone } from 'react-icons/gr';
-import { FaTags, FaImage, FaNewspaper, FaCalendarAlt, FaHome    } from 'react-icons/fa';
+import { FaTags, FaImage, FaNewspaper, FaCalendarAlt, FaHome, FaMailBulk    } from 'react-icons/fa';
 
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
@@ -26,6 +26,7 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
+import { MessageOutlined } from '@mui/icons-material';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -562,8 +563,8 @@ export const links = [
         icon: <FaImage  />,
       },
       {
-        name: 'events',
-        icon: <FaCalendarAlt  />,
+        name: 'chat',
+        icon: <FaMailBulk  />,
       },
     ],
   },

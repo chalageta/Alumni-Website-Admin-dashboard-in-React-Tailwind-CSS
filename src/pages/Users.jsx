@@ -4,6 +4,22 @@ import { Header } from '../components';  // Ensure this component exists or remo
 import { usersData } from '../data/constants';  // Assuming customersData is imported from constants
 
 const Users = () => {
+
+  const handleAddUser = () => {
+    // Logic for adding a new user
+    alert("Add User button clicked!");
+};
+
+const handleExportExcel = () => {
+    // Logic for exporting data to Excel
+    alert("Export to Excel button clicked!");
+};
+
+const handleExportPDF = () => {
+    // Logic for exporting data to PDF
+    alert("Export to PDF button clicked!");
+};
+
   const [searchTerm, setSearchTerm] = useState('');
   const [pageSize, setPageSize] = useState(10);  // Default page size
 
@@ -28,26 +44,38 @@ const Users = () => {
 
       {/* Search Bar */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-        <input
-          type="text"
-          placeholder="Search Users"
-          className="border p-2 rounded-md w-full md:w-1/3"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+    {/* Search Input */}
+    <input
+        type="text"
+        placeholder="Search Users"
+        className="border p-2 rounded-md w-full md:w-1/3"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+    />
 
-        {/* Dropdown for page size */}
-        <select
-          className="border p-2 rounded-md mt-2 md:mt-0"
-          value={pageSize}
-          onChange={(e) => setPageSize(parseInt(e.target.value, 10))}
+    {/* Buttons */}
+    <div className="flex mt-2 md:mt-0 md:ml-4">
+        <button
+            onClick={handleAddUser}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mr-2"
         >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={15}>15</option>
-          <option value={20}>20</option>
-        </select>
-      </div>
+            Add User
+        </button>
+        <button
+            onClick={handleExportExcel}
+            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 mr-2"
+        >
+            Export Excel
+        </button>
+        <button
+            onClick={handleExportPDF}
+            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+        >
+            Export PDF
+        </button>
+    </div>
+</div>
+
 
       {/* DataGrid */}
       <div style={{ height: 400, width: '100%' }}>

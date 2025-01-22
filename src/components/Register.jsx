@@ -4,15 +4,14 @@ import { useStateContext } from '../contexts/ContextProvider'
 const Register = () => {
   const {currentColor} = useStateContext();
   return (
-    <div className="font-[sans-serif]">
+    <div className="font-[sans-serif] ">
     <div className="text-center bg-gradient-to-r from-blue-800 to-blue-400 min-h-[160px] sm:p-6 p-4">
       <h4 className="sm:text-3xl text-2xl font-bold text-white">Create your free account</h4>
     </div>
 
-    <div className="mx-4 mb-4 -mt-16">
-      <form className="max-w-4xl mx-auto bg-white shadow-[0_2px_13px_-6px_rgba(0,0,0,0.4)] sm:p-8 p-4 rounded-md">
-        <p>Registration</p>
-        <div className="grid md:grid-cols-2 gap-8">
+    <div className="mx-4 mb-4 mt-4 ">
+      <form className="max-w-4xl mx-auto bg-white shadow-[0_2px_13px_-6px_rgba(0,0,0,0.4)] sm:p-8 p-4 rounded-md dark:text-gray-50 dark:bg-gray-800">
+         <div className="grid md:grid-cols-2 gap-8">
           <button type="button"
             className="w-full px-6 py-3 flex items-center justify-center rounded-md text-gray-800 text-sm tracking-wider font-semibold border-none outline-none bg-gray-100 hover:bg-gray-200">
             <svg xmlns="http://www.w3.org/2000/svg" width="22px" fill="#fff" className="inline shrink-0 mr-4" viewBox="0 0 512 512">
@@ -58,8 +57,8 @@ const Register = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
         <div>
-            <label className="text-gray-800 text-sm mb-2 block">Email</label>
-            <input name="email" type="text" className="bg-gray-100 focus:bg-transparent w-full text-sm text-gray-800 px-4 py-3 rounded-md outline-blue-500 transition-all" placeholder="Enter email" />
+            <label className="text-gray-800 dark:text-gray-50 text-sm mb-2 block">Email</label>
+            <input name="email" type="text" className="bg-gray-100 dark:bg-gray-900 focus:bg-transparent w-full text-sm text-gray-800 dark:text-gray-50 px-4 py-3 rounded-md outline-blue-500 transition-all" placeholder="Enter email" />
           </div>
           <div>
             <label className="text-gray-800 text-sm mb-2 block">Password</label>

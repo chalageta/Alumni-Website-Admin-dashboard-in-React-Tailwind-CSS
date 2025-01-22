@@ -37,6 +37,7 @@ const Sidebar = () => {
                             </button>
                         </Tooltip>
                     </div>
+                    
                     <div className='mt-10'>
                         {links.map((item, index) => (
                              <div key={`${item.title}-${index}`}> {/* Unique key for each section */}

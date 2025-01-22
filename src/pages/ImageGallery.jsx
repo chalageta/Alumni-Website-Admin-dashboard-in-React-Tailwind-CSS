@@ -11,22 +11,21 @@ const ImageGallery = () => {
     {
       title: 'Irreechaa Festival',
       src: [
-        'https://scontent.fadd1-1.fna.fbcdn.net/v/t39.30808-6/462166810_850079990647971_5239676167936850587_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sL8bx1hK7S4Q7kNvgHkmYDG&_nc_ht=scontent.fadd1-1.fna&_nc_gid=AGyfVjoqemrNqGMs4mPUsT8&oh=00_AYAkN3-gDMKSPrxeIMl_5MQJFViyeGpp3Z0PoGYPWstWrQ&oe=670D34FA',
+        'community.jpg',
       ],
     },
     {
       title: 'IT Teams',
       src: [
-        'https://images.pexels.com/photos/14612128/pexels-photo-14612128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/7988218/pexels-photo-7988218.jpeg?auto=compress&cs=tinysrgb&w=600',
-        'https://images.pexels.com/photos/14612128/pexels-photo-14612128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/14612128/pexels-photo-14612128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        'membership.jpg',
+        'criteria.avif',
+       
       ],
     },
     {
       title: 'Tax Payers',
       src: [
-        'https://images.pexels.com/photos/14612128/pexels-photo-14612128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'tax.jpg',
       ],
     },
     {

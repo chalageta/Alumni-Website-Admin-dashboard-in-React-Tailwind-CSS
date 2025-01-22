@@ -5,7 +5,14 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from "react-icons/ai";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
+    const handleLogins = () => {
+        // Perform login logic here (e.g., API call for authentication)
+    
+        // On successful login:
+        onLogin(); // Notify App component to update state
+      };
+    
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -28,8 +35,14 @@ const Login = () => {
             setError("Invalid username or password. Please retry.");
         }
     };
+    
 
     return (
+           
+            
+            
+       
+          
       <div>
        
      
@@ -40,7 +53,7 @@ const Login = () => {
             <div className="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl max-md:max-w-lg rounded-md p-6">
                 <div className="grid md:grid-cols-2 items-center gap-8">
                     <div className="max-md:order-1 lg:min-w-[450px]">
-                        <img src="https://readymadeui.com/signin-image.webp" className="lg:w-11/12 w-full object-cover" alt="login" />
+                        <img src="login.webp" className="lg:w-11/12 w-full object-cover" alt="login" />
                     </div>
                     <form className="md:max-w-md w-full mx-auto" onSubmit={handleLogin}>
                         {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -100,7 +113,10 @@ const Login = () => {
                         <div className="mt-12">
                             <button type="submit" className="w-full shadow-xl py-2.5 px-5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none dark:bg-blue-500 dark:hover:bg-blue-600">
                                 Sign in
-                            </button>
+                            </button >
+                            <button onClick={handleLogins} className="w-full shadow-xl py-2.5 px-5 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none dark:bg-blue-500 dark:hover:bg-blue-600">
+                Logged in
+              </button>
                             <p className="text-gray-800 dark:text-gray-300 text-sm text-center mt-6">
                                 Don't have an account? <a href="/register" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap dark:text-blue-400">Register here</a>
                             </p>
