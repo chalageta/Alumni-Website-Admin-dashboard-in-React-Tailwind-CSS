@@ -33,14 +33,17 @@ const Membership = () => {
             <p className="text-gray-600 text-sm leading-6">
             Membership Criteria: </p>
             <ul className="list-disc text-sm text-gray-600 space-y-2 pl-4 mt-6">
-              <li>Discover innovative ideas.</li>
-              <li>Create unique projects.</li>
-              <li>Collaborate with like-minded individuals.</li>
-              <li>Transform your visions into reality.</li>
+              <li>Must be a former employee  of ECC.</li>
+              <li>Willingness to participate in alumni activities, events, or initiatives.</li>
+              <li>Upholds the values and principles of ECC.</li>
+              <li>Committed to ethical behavior and respectful collaboration with others.</li>
+              <li>Supports the alumni association's mission to foster personal, professional, and community development.</li>
+              <li>Participates in discussions, brainstorming, and creating initiatives that advance the alumni network's vision.</li>
             </ul>
-            <p>Thank you for your interest in joining the ECC Alumni.</p>
+            <p>Your membership in the ECC Alumni offers you the chance to connect with like-minded individuals, access valuable resources, and contribute to shaping the future of our community.</p>
+            <p><strong>Thank you for your interest in joining the ECC Alumni.</strong></p>
             <div className="mt-6">
-              <a href="/register" className="text-purple-600 text-sm font-semibold hover:underline">Get Started</a>
+              <a href="/register" className="text-gray-50 p-4 text-sm bg-blue-700 font-semibold rounded-full ">Join Us Today!</a>
             </div>
           </div>
         </div>

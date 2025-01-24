@@ -63,9 +63,9 @@ const Contact = () => {
             </div>
 
             <div className="z-10 relative h-full max-md:min-h-[350px]">
-                <iframe src="https://maps.google.com/maps?q=Ethiopia&t=&z=13&ie=UTF8&addis ababa=&output=embed"
-                    className="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" frameborder="0"
-                    allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.6120453354233!2d38.759028099999995!3d9.007798699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cde4547743%3A0x9ca61d96b4704800!2zWWlyZ2EgSGFpbGUgVG93ZXIgfCBNZXNodWFsaWtpeWEgfCDhi63hiK3hjIsg4YiA4Yut4YiMIOGIheGKleGNgyB8IOGImOGIv-GIiOGKquGLqw!5e0!3m2!1sen!2set!4v1737700894742!5m2!1sen!2set" width="600" height="450" className="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              
             </div>
         </div>
   )

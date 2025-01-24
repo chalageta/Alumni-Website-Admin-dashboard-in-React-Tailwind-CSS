@@ -224,7 +224,7 @@ const Home = () => {
       </div> */}
 
     
-      <div className="mt-10 bg-white px-4 sm:px-10 py-12 space-y-6">
+      <div className="mt-10 dark:bg-gray-900 dark:text-gray-50 bg-white px-4 sm:px-10 py-12 space-y-6">
       <div className="md:text-center max-w-2xl mx-auto mb-14">
         <h2 className="md:text-4xl text-3xl font-bold mb-6">Frequently Asked Questions</h2>
         <p>
@@ -301,7 +301,7 @@ const Home = () => {
         <p class="text-white text-base text-center mb-8">Welcome to our ECC Alumni community—where opportunities and meaningful connections thrive.</p>
 
         <Link to="/register"  class="bg-white text-sm text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-slate-100">
-        Join Our Community
+        Join Us Today!
         </Link>
       </div>
     </div>
