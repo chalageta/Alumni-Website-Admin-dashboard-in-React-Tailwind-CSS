@@ -1007,11 +1007,11 @@ export const categoryData = [
   }, 
 ]
 export const usersData = [
-  { id: 1, Name: 'Chala Geta', Email: 'Chala@example.com', Contact: '0955357890', Address: '123 Main St' },
-  { id: 2, Name: 'Elias Dajene', Email: 'Elias@example.com', Contact: '0957893340', Address: '456 Elm St' },
-  { id: 3, Name: 'Dibora Habtamu', Email: 'Dibora@example.com', Contact: '09578909012', Address: '789 Oak St' },
-  { id: 4, Name: 'Jamala Waliyi', Email: 'Jamala@example.com', Contact: '0956040123', Address: '101 Pine St' },
-  { id: 5, Name: 'Sena Seyum', Email: 'Sena@example.com', Contact: '0955301234', Address: '202 Birch St' },
+  { id: 1, Name: 'Chala Geta', Email: 'Chala@example.com', Contact: '0955357890',Position: "Software", Years_Served: '2', Address: '123 Main St' },
+  { id: 2, Name: 'Elias Dajene', Email: 'Elias@example.com', Contact: '0957893340', Position: "QA", Years_Served: '1', Address: '456 Elm St' },
+  { id: 3, Name: 'Dibora Habtamu', Email: 'Dibora@example.com', Contact: '09578909012', Position: "Cargo", Years_Served: '5', Address: '789 Oak St' },
+  { id: 4, Name: 'Jamala Waliyi', Email: 'Jamala@example.com', Contact: '0956040123', Position: "DB", Years_Served: '3', Address: '101 Pine St' },
+  { id: 5, Name: 'Sena Seyum', Email: 'Sena@example.com', Contact: '0955301234', Position: "SA", Years_Served: '4', Address: '202 Birch St' },
   // Add more data as needed
 ];
 

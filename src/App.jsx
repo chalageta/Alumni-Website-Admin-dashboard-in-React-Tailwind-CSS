@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
-import { Navbar, Footer, ThemeSettings, Sidebar, Chat } from './components';
+import { Navbar, Footer, ThemeSettings, Sidebar, Dashboard, Chat } from './components';
 import { Add_category, ImageGallery, Events, Home, Orders, Announcements, Editor, Employees, News, AddNews, Kanban, Area, Users, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked } from './pages';
 import { useStateContext } from './contexts/ContextProvider';
 import Category from './pages/Category';
@@ -19,7 +19,7 @@ const App = () => {
  const {  themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
 
   return (
-    <div className={currentMode === 'Dark' ? 'dark' : ''}>
+    <div className={currentMode === 'Light' ? 'light' : ''}>
       <div className="flex relative dark:bg-main-dark-bg">
         {/* Settings Button */}
         <div className="fixed right-4 bottom-4" style={{ zIndex: 1000 }}>
@@ -68,6 +68,7 @@ const App = () => {
             <Route path="/login" element={<Login onLogin={() => { setIsLoggedIn(true); setActiveMenu(true); }} />} />
           
             <Route path="/register" element={<Register />} />
+
             <Route path="/contact" element={<Contact />} />
             <Route path="/membership" element={<Membership />} />
 
@@ -83,6 +84,14 @@ const App = () => {
               element={
                 <PrivateRoute isLoggedIn={isLoggedIn}>
                   <Announcements />
+                </PrivateRoute>
+              }
+            />
+             <Route 
+              path="/dashboard" 
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+               <Dashboard />
                 </PrivateRoute>
               }
             />

@@ -40,10 +40,11 @@ const Users = () => {
   }, [searchTerm]);
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
-    { field: 'Name', headerName: 'Name', width: 150 },
+     { field: 'Name', headerName: 'Name', width: 150 },
     { field: 'Email', headerName: 'Email', width: 200 },
     { field: 'Contact', headerName: 'Phone', width: 150 },
+    { field: 'Position', headerName: 'Position', width: 150 },
+    {field: 'Years_Served', headerName: 'Years Served', width: 150},
     { field: 'Address', headerName: 'Address', width: 200 },
     {
       field: 'Action',

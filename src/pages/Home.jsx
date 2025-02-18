@@ -11,13 +11,13 @@ const Home = () => {
   };
   const {currentColor}  = useStateContext();
   return (
-   <div className="max-w-[1920px] mx-auto dark:bg-gray-600">
+   <div className="max-w-[1920px] mx-auto dark:bg-gray-900">
   <div className="dark:text-gray-50 text-black text-[15px]">
     <div className="px-4 sm:px-10">
       <div className="min-h-[450px]">
-        <div className="grid md:grid-cols-2 justify-center items-center gap-10">
+        <div className="grid md:grid-cols-2 justify-center items-center gap-4">
           <div className="max-md:order-1">
-            <p className="mt-4 mb-2 font-semibold text-blue-600"><span className="rotate-90 inline-block mr-2">|</span>  Welcome To ECC Alumni </p>
+            <p className="mt-1 mb-2 font-semibold text-blue-600"><span className="rotate-90 inline-block mr-2">|</span>  Welcome To ECC Alumni </p>
               
   <h1 className="md:text-5xl text-4xl font-bold mb-4 md:!leading-[55px]">
     GROW THE NETWORK
