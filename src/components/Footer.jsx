@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="grid max-sm:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-5 lg:gap-20 max-lg:gap-8">
         <div className="lg:col-span-3 max-lg:col-span-full">
           <a href='javascript:void(0)'><img src={logo} alt="logo" className='w-36' /></a>
-          <p className="text-gray-400 leading-relaxed text-sm lg:max-w-sm mt-6">About ECC ALUMNI.</p>
+          <p className="text-gray-400 leading-relaxed text-sm lg:max-w-sm mt-6">About MOR And EC ALUMNI.</p>
         </div>
 
         <div>
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-sm text-gray-400 mt-8'>© ECC Alumni. All rights reserved.</p>
+      <p className='text-sm text-gray-400 mt-8'>© MOR And ECC Alumni. All rights reserved.</p>
     </div>
   </footer>
   );
